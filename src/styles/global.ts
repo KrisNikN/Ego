@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         scroll-behavior: smooth;
         font-family: 'Inter', sans-serif;
+        background-color: #191919;
     }
 
 
