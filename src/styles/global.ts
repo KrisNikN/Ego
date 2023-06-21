@@ -5,13 +5,8 @@ export const GlobalStyles = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
-        font-family: 'Crimson Text', serif;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.8;
-        color: #333;
-        background: #fff;
         scroll-behavior: smooth;
+        font-family: 'Inter', sans-serif;
     }
 
 

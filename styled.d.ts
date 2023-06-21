@@ -7,9 +7,26 @@ import {
 } from "styles";
 
 declare module "styled-components" {
-  type Colors = "primary" | "secondary" | "black" | "white" | "vividRed";
+  type Colors =
+    | "primary"
+    | "secondary"
+    | "black"
+    | "white"
+    | "vividRed"
+    | "main"
+    | "darkGray"
+    | "lightGray"
+    | "silver"
+    | "gold"
+    | "purplish"
+    | "yellow";
 
-  type Gradients = "blueToPurple";
+  type Gradients =
+    | "blueToPurple"
+    | "buttonBackground"
+    | "silverToGray"
+    | "yellowToGold"
+    | "purplishToBlack";
 
   type Breakpoints = {
     max: MaxWidthBreakpointsType;

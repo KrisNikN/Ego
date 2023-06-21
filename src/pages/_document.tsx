@@ -39,6 +39,11 @@ export default class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Crimson+Text&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap'
             rel='stylesheet'
           />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800;900&display=swap'
+            rel='stylesheet'
+          />
+
           <meta name='description' content='app description goes here'></meta>
           <meta name='title' content='app title goes here' />
         </Head>
