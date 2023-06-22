@@ -11,40 +11,42 @@ const buttonStyles: Record<
   FlattenInterpolation<ThemedStyledProps<ButtonProps, DefaultTheme>>
 > = {
   primary: css`
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.primary};
-    padding: 1.1em 2.5em;
+    color: ${({ theme }) => theme.colors.black};
+    background: ${({ theme }) => theme.gradients.buttonBackground};
+    padding: 14px 34px;
     border: none;
-    text-transform: uppercase;
-    transition: opacity 300ms ease;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
 
     &:hover {
       opacity: 0.8;
     }
   `,
   secondary: css`
-    color: ${({ theme }) => theme.colors.white};
     background-color: transparent;
-    padding: 0.9em 2em;
-    border: 1px solid ${({ theme }) => theme.colors.white};
-    transition: color 500ms ease, background-color 500ms ease;
+    border: 1px solid ${({ theme }) => theme.colors.yellow};
+    padding: 11px 28px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
 
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: ${({ theme }) => theme.colors.yellow};
     &:hover {
-      color: ${({ theme }) => theme.colors.black};
-      background-color: ${({ theme }) => theme.colors.white};
     }
   `
 };
 
 export const Button = styled("button")<ButtonProps>`
-  font-family: "Playfair Display";
-  font-weight: 700;
-  font-size: 0.8em;
-  line-height: 1;
   cursor: pointer;
   outline: none;
-  border-radius: 50px;
-  white-space: nowrap;
+  border-radius: 5px;
 
   ${({ variant }) => buttonStyles[variant!]}
 `;
