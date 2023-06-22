@@ -1,12 +1,11 @@
 import { NextPage } from "next";
-import {} from "sections";
-import { SearchInput, Link } from "components";
+import { Hero } from "sections";
+import { heroProps } from "data";
 
 const Home: NextPage = () => {
   return (
     <>
-      <SearchInput placeholder='Search...' />
-      <Link href='/'>Terms and Policies</Link>
+      <Hero {...heroProps} />
     </>
   );
 };
