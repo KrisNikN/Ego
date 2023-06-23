@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Image as _Image } from "components";
-import { HeroRow as _HeroRow } from "collections";
+import { HeroCard as _HeroRow } from "collections";
 
 export const Hero = styled.section(
   ({ theme: { colors, breakpoint } }) => css`

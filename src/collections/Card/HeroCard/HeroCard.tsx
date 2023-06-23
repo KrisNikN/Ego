@@ -1,6 +1,6 @@
 import * as S from "./elements";
 
-export interface HeroRowProps {
+export interface HeroCardProps {
   images: {
     src: string;
     width: number;
@@ -9,19 +9,21 @@ export interface HeroRowProps {
   }[];
 }
 
-export const HeroRow = ({ images, ...props }: HeroRowProps) => {
+export const HeroCard = ({ images, ...props }: HeroCardProps) => {
   return (
     <S.Row {...props}>
       {images.map(image =>
         image.alt === "Dota2" ? (
-          <S.Image
-            src={image.src}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
-            layout='intrinsic'
-            key={image.alt}
-          />
+          <S.ImageContainer>
+            <S.Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              objectFit='cover'
+              key={image.alt}
+            />
+          </S.ImageContainer>
         ) : (
           <S.Image
             src={image.src}

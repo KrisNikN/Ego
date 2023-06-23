@@ -1,5 +1,5 @@
 import * as S from "./elements";
-import { HeroRowProps } from "collections";
+import { HeroCardProps } from "collections";
 
 export interface HeroProps {
   heroImage: {
@@ -8,7 +8,7 @@ export interface HeroProps {
     height: number;
     alt: string;
   };
-  rows: HeroRowProps[];
+  rows: HeroCardProps[];
 }
 
 export const Hero = ({ heroImage, rows, ...props }: HeroProps) => {

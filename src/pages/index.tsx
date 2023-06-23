@@ -1,11 +1,13 @@
 import { NextPage } from "next";
-import { Hero } from "sections";
-import { heroProps } from "data";
+import { Hero, Power, CompetitionDuration } from "sections";
+import { heroProps, powerProps, competitionDurationProps } from "data";
 
 const Home: NextPage = () => {
   return (
     <>
       <Hero {...heroProps} />
+      <Power {...powerProps} />
+      <CompetitionDuration {...competitionDurationProps} />
     </>
   );
 };

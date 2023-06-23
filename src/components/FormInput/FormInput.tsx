@@ -1,17 +1,27 @@
-import { ForwardedRef } from "react";
-import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import type { KeyOfType, HTMLInputProps } from "types";
+import React from "react";
 import * as S from "./elements";
+import { Control, FieldValues, Path, useController } from "react-hook-form";
+import { HTMLInputProps } from "types";
 
-export interface FormInputProps<T extends FieldValues = any>
-  extends Omit<HTMLInputProps, "name" | "defaultValue">,
-    Omit<UseControllerProps<T>, "name"> {
-  name: KeyOfType<T>;
+// interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+//   variant?: string;
+// }
+
+export interface FormTextInputProps<T extends FieldValues = any>
+  extends Omit<HTMLInputProps, "name" | "defaultValue"> {
+  name: Path<T>;
   label?: string;
-  ref?: ForwardedRef<HTMLInputElement>;
+  control: Control<T, any>;
+  variant?: string;
 }
 
-export const FormInput = ({ name, control, label, ...props }: FormInputProps) => {
+export const FormInput = <T extends FieldValues = any>({
+  placeholder,
+  variant,
+  name,
+  control,
+  ...props
+}: FormTextInputProps<T>) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -20,27 +30,38 @@ export const FormInput = ({ name, control, label, ...props }: FormInputProps) =>
     name,
     control,
     rules: { required: true },
-    defaultValue: ""
+    defaultValue: "" as any
   });
 
-  return (
-    <S.Container {...props}>
-      <S.InputWrapper>
-        {label && <S.Label htmlFor={name}>{label}</S.Label>}
-        <S.Input
+  if (error) {
+    return (
+      <>
+        <S.FormInput
           {...props}
-          spellCheck={false}
+          type={props.type || "text"}
+          variant='alert'
+          placeholder={placeholder}
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          name={name}
-          id={name}
           ref={ref}
         />
-      </S.InputWrapper>
-      {error && <S.ErrorText>{error.message}</S.ErrorText>}
-    </S.Container>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <S.FormInput
+        {...props}
+        type={props.type || "text"}
+        variant={variant}
+        placeholder={placeholder}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
+        ref={ref}
+      />
+    </>
   );
 };
-
-FormInput.displayName = "FormInput";

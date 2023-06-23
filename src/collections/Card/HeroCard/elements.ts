@@ -15,11 +15,8 @@ export const Image = styled(_Image)(() => css``);
 export const ImageContainer = styled.div(
   () => css`
     position: relative;
-    max-width: 285px;
-    width: 100%;
-    height: 147px;
-    top: -8px;
-    margin-left: 15px;
-    margin-right: 15px;
+    top: -5px;
+    margin-left: 9px;
+    margin-right: 10px;
   `
 );
