@@ -9,7 +9,7 @@ export const Power = ({ columns, ...props }: PowerProps) => {
   return (
     <S.Power {...props}>
       {columns.map(column => (
-        <S.PowerColumn {...column} />
+        <S.PowerColumn {...column} key={column.title} />
       ))}
     </S.Power>
   );

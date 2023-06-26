@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { Hero, Power, CompetitionDuration } from "sections";
+import { Hero, Power, CompetitionDuration, Competition } from "sections";
 import { heroProps, powerProps, competitionDurationProps } from "data";
 
 const Home: NextPage = () => {
@@ -8,6 +8,7 @@ const Home: NextPage = () => {
       <Hero {...heroProps} />
       <Power {...powerProps} />
       <CompetitionDuration {...competitionDurationProps} />
+      <Competition />
     </>
   );
 };

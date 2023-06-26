@@ -14,14 +14,13 @@ export const HeroCard = ({ images, ...props }: HeroCardProps) => {
     <S.Row {...props}>
       {images.map(image =>
         image.alt === "Dota2" ? (
-          <S.ImageContainer>
+          <S.ImageContainer key={image.alt}>
             <S.Image
               src={image.src}
               alt={image.alt}
               width={image.width}
               height={image.height}
               objectFit='cover'
-              key={image.alt}
             />
           </S.ImageContainer>
         ) : (
