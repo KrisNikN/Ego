@@ -3,3 +3,5 @@ export * from "./footerProps";
 export * from "./heroProps";
 export * from "./powerProps";
 export * from "./competitionDurationProp";
+export * from "./users";
+export * from "./competitionProps";

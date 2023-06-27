@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
-import { Topthree as _Topthree, Statsleaders as _Statsleaders } from "collections";
+import {
+  Topthree as _Topthree,
+  Statsleaders as _Statsleaders,
+  Competitiontable as _Competitiontable
+} from "collections";
 
 export const Competition = styled.section(
   () => css`
@@ -56,3 +60,5 @@ export const Detail = styled.div(
 export const Topthree = styled(_Topthree)(() => css``);
 
 export const Statsleaders = styled(_Statsleaders)(() => css``);
+
+export const Competitiontable = styled(_Competitiontable)(() => css``);

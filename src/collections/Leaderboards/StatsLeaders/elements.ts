@@ -30,10 +30,14 @@ export const Title = styled(_H2)(
 export const Row = styled.div(
   () => css`
     width: 100%;
-    margin-top: 50px;
+    margin-top: 52px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &:nth-child(1) {
+      margin-top: 50px;
+    }
   `
 );
 

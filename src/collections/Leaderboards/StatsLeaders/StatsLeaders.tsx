@@ -1,8 +1,35 @@
 import * as S from "./elements";
 
-export const Statsleaders = () => {
+export interface StatsleadersProps {
+  title: string;
+
+  logoImage: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+}
+
+interface UsersProps {
+  users: {
+    leaderOfStat: string | undefined;
+    username: string;
+    leadingStatNumber: number;
+    score: number;
+    matches: number;
+    rank: number;
+  }[];
+}
+
+export const Statsleaders = ({
+  title,
+  users,
+  logoImage,
+  ...props
+}: StatsleadersProps & UsersProps) => {
   return (
-    <S.StatsLeaders>
+    <S.StatsLeaders {...props}>
       <S.Title>Inidivual Stats Leaders</S.Title>
       <S.Row>
         <S.Stat>{"{Stat Name}"}</S.Stat>

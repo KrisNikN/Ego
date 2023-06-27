@@ -1,8 +1,49 @@
 import * as S from "./elements";
 
-export const Topthree = () => {
+export interface TopthreeProps {
+  competitionName: string;
+  silverTrophieImage: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+  goldTrophieImage: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+
+  bronzeTrophieImage: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+}
+
+interface UsersProps {
+  rankedUsers: {
+    leaderOfStat: string | undefined;
+    username: string;
+    leadingStatNumber: number;
+    score: number;
+    matches: number;
+    rank: number;
+  }[];
+}
+
+export const Topthree = ({
+  bronzeTrophieImage,
+  competitionName,
+  goldTrophieImage,
+  silverTrophieImage,
+  rankedUsers,
+  ...props
+}: TopthreeProps & UsersProps) => {
   return (
-    <S.Topthree>
+    <S.Topthree {...props}>
       <S.CompetitionName>{"{Competition Name}"}</S.CompetitionName>
       <S.ColumnsContainer>
         <S.Column>
