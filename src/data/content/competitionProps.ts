@@ -36,6 +36,25 @@ export const competitionProps: CompetitionProps = {
         height: 46,
         alt: "logo"
       }
-    }
+    },
+    competitionPaginationProps: {
+      leftArrowImage: {
+        src: "/imgs/leftArrow.png",
+        width: 5,
+        height: 10,
+        alt: "left arrow"
+      },
+      rightArrowImage: {
+        src: "/imgs/rightArrow.png",
+        width: 5,
+        height: 10,
+        alt: "right arrow"
+      }
+    },
+    matchesColumnHead: "MATCHES",
+    nameColumnHead: "NAME",
+    profileColumnHead: "PROFILE",
+    rankColumnHead: "RANK",
+    scoreColumnHead: "SCORE"
   }
 };

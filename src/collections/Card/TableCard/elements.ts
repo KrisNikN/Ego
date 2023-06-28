@@ -1,25 +1,30 @@
 import styled, { css } from "styled-components";
 import { Image as _Image } from "components";
 
-export const Tablerow = styled.tr(
-  ({ theme: { colors } }) => css`
+export const Tablerow = styled.tr<{ rank: number }>(
+  ({ theme: { colors }, rank }) => css`
     color: ${colors.white};
-    &:nth-child(1) {
+
+    ${rank === 1 &&
+    css`
       color: ${colors.gold};
-    }
-    &:nth-child(2) {
+    `}
+    ${rank === 2 &&
+    css`
       color: ${colors.silver};
-    }
-    &:nth-child(3) {
+    `}
+    ${rank === 3 &&
+    css`
       color: ${colors.purplish};
-    }
+    `}
   `
 );
 
 export const Tablecell = styled.td(
   () => css`
     text-align: center;
-    padding-top: 26px;
+    padding: 0;
+    padding-top: 23px;
   `
 );
 

@@ -29,7 +29,7 @@ export const TableCard = ({
   ...props
 }: UserProps & TableCardProps) => {
   return (
-    <S.Tablerow {...props}>
+    <S.Tablerow rank={rank} {...props}>
       <S.Tablecell>{rank}</S.Tablecell>
       <S.Tablecell>{username}</S.Tablecell>
       <S.Tablecell>{score}</S.Tablecell>
