@@ -1,11 +1,19 @@
 import * as S from "./elements";
+import { BlockCardProps } from "collections";
 
-export const HowItWorks = ({ ...props }) => {
+export interface HowItWorksProps {
+  title: string;
+  cards: BlockCardProps[];
+}
+
+export const HowItWorks = ({ cards, title, ...props }: HowItWorksProps) => {
   return (
     <S.HowItWorks {...props}>
-      <S.Title>How it works</S.Title>
+      <S.Title>{title}</S.Title>
       <S.BlocksContainer>
-        <S.BlockCard />
+        {cards.map(card => (
+          <S.BlockCard {...card} />
+        ))}
       </S.BlocksContainer>
     </S.HowItWorks>
   );

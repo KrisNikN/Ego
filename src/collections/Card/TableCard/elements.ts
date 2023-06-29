@@ -21,11 +21,37 @@ export const Tablerow = styled.tr<{ rank: number }>(
 );
 
 export const Tablecell = styled.td(
-  () => css`
+  ({ theme: { breakpoint } }) => css`
     text-align: center;
     padding: 0;
     padding-top: 23px;
+
+    @media ${breakpoint.max.L} {
+      padding-top: 31.5px;
+    }
+
+    @media ${breakpoint.max.S} {
+      padding-top: 23px;
+    }
   `
 );
 
+export const TablecellImage = styled.td(
+  ({ theme: { breakpoint } }) => css`
+    text-align: center;
+    padding: 0;
+    padding-top: 23px;
+    @media ${breakpoint.max.L} {
+      display: none;
+    }
+
+    @media ${breakpoint.max.M} {
+      display: block;
+    }
+
+    @media ${breakpoint.max.S} {
+      display: none;
+    }
+  `
+);
 export const Image = styled(_Image)(() => css``);

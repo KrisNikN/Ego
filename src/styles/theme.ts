@@ -23,7 +23,9 @@ export const theme: DefaultTheme = {
     buttonBackground: "linear-gradient(180deg, #FFDB7D 0%, #DEA30A 100%)",
     silverToGray: "linear-gradient(180deg, #BCBCBC 0%, #4A4A4A 100%)",
     yellowToGold: "linear-gradient(180deg, #DEA30A 0%, #584001 100%)",
-    purplishToBlack: "linear-gradient(180deg, #793E3E 0%, #301818 100%)"
+    purplishToBlack: "linear-gradient(180deg, #793E3E 0%, #301818 100%)",
+    heroImage:
+      "linear-gradient(180deg,rgba(0, 0, 0, 0.00) 0%,rgba(0, 0, 0, 0.50) 100%),url(<path-to-image>)"
   },
   breakpoint: {
     max: maxWidth,

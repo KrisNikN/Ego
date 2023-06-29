@@ -1,15 +1,24 @@
 import * as S from "./elements";
 
-export const BlockCard = () => {
+export interface BlockCardProps {
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  title: string;
+  paragraph: string;
+}
+
+export const BlockCard = ({ image, paragraph, title, ...props }: BlockCardProps) => {
   return (
-    <S.BlockCard>
+    <S.BlockCard {...props}>
       <S.ImageContainer>
-        <S.Image src='/imgs/Icons/TrophieIcon.png' width={55} height={44} layout='intrinsic' />
+        <S.Image src={image.src} width={image.width} height={image.height} layout='intrinsic' />
       </S.ImageContainer>
-      <S.Title>1 - Compete</S.Title>
-      <S.Paragraph>
-        Join Competitions or create your own. Invite friends to compete when it begins.
-      </S.Paragraph>
+      <S.Title>{title}</S.Title>
+      <S.Paragraph>{paragraph}</S.Paragraph>
     </S.BlockCard>
   );
 };

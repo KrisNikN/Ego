@@ -26,7 +26,8 @@ declare module "styled-components" {
     | "buttonBackground"
     | "silverToGray"
     | "yellowToGold"
-    | "purplishToBlack";
+    | "purplishToBlack"
+    | "heroImage";
 
   type Breakpoints = {
     max: MaxWidthBreakpointsType;

@@ -3,13 +3,16 @@ import { H2 as _H2 } from "components";
 import { BlockCard as _BlockCard } from "collections";
 
 export const HowItWorks = styled.section(
-  () => css`
+  ({ theme: { breakpoint } }) => css`
     padding: 50px;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    @media ${breakpoint.max.M} {
+      padding: 50px 30px;
+    }
   `
 );
 
@@ -27,8 +30,16 @@ export const Title = styled(_H2)(
 export const BlocksContainer = styled.div(
   () => css`
     display: flex;
-    margin-top: 63px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -10px;
   `
 );
 
-export const BlockCard = styled(_BlockCard)(() => css``);
+export const BlockCard = styled(_BlockCard)(
+  ({ theme: { breakpoint } }) => css`
+    /* margin-left: 20px; */
+    margin: 10px;
+    margin-top: 63px;
+  `
+);

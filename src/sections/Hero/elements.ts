@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Image as _Image } from "components";
-import { HeroCard as _HeroRow } from "collections";
+import { HeroCard as _HeroCard } from "collections";
 
 export const Hero = styled.section(
   ({ theme: { colors, breakpoint } }) => css`
@@ -12,7 +12,32 @@ export const Hero = styled.section(
   `
 );
 
-export const Image = styled(_Image)(() => css``);
+export const Image = styled(_Image)(
+  ({ theme: { breakpoint } }) => css`
+    @media ${breakpoint.max.S} {
+      display: none;
+    }
+  `
+);
+
+export const ImageContainer = styled.div(
+  ({ theme: { breakpoint } }) => css`
+    @media ${breakpoint.max.S} {
+      display: none;
+    }
+  `
+);
+
+export const ImageContainerMobile = styled.div(
+  ({ theme: { breakpoint } }) => css`
+    display: none;
+    @media ${breakpoint.max.S} {
+      display: flex;
+      justify-content: center;
+    }
+    width: 100%;
+  `
+);
 
 export const RowsContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -24,4 +49,4 @@ export const RowsContainer = styled.div(
   `
 );
 
-export const HeroRow = styled(_HeroRow)(() => css``);
+export const HeroCard = styled(_HeroCard)(() => css``);

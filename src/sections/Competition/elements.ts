@@ -6,18 +6,23 @@ import {
 } from "collections";
 
 export const Competition = styled.section(
-  () => css`
+  ({ theme: { breakpoint } }) => css`
     padding: 50px;
     display: flex;
     width: 100%;
     justify-content: space-between;
     max-width: 1440px;
     margin: 0 auto;
+
+    @media ${breakpoint.max.M} {
+      flex-direction: column-reverse;
+      padding: 0 30px;
+    }
   `
 );
 
 export const CompetitionColumn = styled.div(
-  () => css`
+  ({ theme: { breakpoint } }) => css`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -28,19 +33,46 @@ export const CompetitionColumn = styled.div(
       max-width: 796px;
       margin-left: 20px;
     }
+
+    @media ${breakpoint.max.L} {
+      &:nth-child(2) {
+        max-width: inherit;
+        margin-left: 20px;
+      }
+      &:nth-child(1) {
+        margin-left: 0;
+        min-width: 327px;
+      }
+    }
+
+    @media ${breakpoint.max.M} {
+      max-width: unset;
+      width: 100%;
+      &:nth-child(2) {
+        max-width: unset;
+        margin-left: 0;
+      }
+      &:nth-child(1) {
+        max-width: unset;
+        margin-left: 0;
+        min-width: unset;
+      }
+    }
   `
 );
 
 export const DetailsContainer = styled.div(
-  () => css`
+  ({ theme: { breakpoint } }) => css`
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    @media ${breakpoint.max.L} {
+      flex-direction: column;
+    }
   `
 );
 
 export const Detail = styled.div(
-  ({ theme: { colors } }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     width: 100%;
     max-width: 388px;
@@ -54,10 +86,48 @@ export const Detail = styled.div(
     font-weight: 600;
     line-height: 28px;
     color: ${colors.white};
+
+    &:nth-child(2) {
+      margin-left: 20px;
+    }
+
+    @media ${breakpoint.max.L} {
+      margin: 0;
+      &:nth-child(2) {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+
+      &:nth-child(2),
+      :nth-child(1) {
+        max-width: unset;
+      }
+    }
+
+    @media ${breakpoint.max.S} {
+      margin: 0;
+      font-size: 16px;
+    }
   `
 );
 
-export const Topthree = styled(_Topthree)(() => css``);
+export const TopthreeDesktop = styled(_Topthree)(
+  ({ theme: { breakpoint } }) => css`
+    @media ${breakpoint.max.M} {
+      display: none;
+    }
+  `
+);
+
+export const TopthreeMobile = styled(_Topthree)(
+  ({ theme: { breakpoint } }) => css`
+    margin-top: 20px;
+    display: none;
+    @media ${breakpoint.max.M} {
+      display: block;
+    }
+  `
+);
 
 export const Statsleaders = styled(_Statsleaders)(() => css``);
 

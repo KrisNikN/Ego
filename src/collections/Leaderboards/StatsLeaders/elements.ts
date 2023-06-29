@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { H2 as _H2, Image as _Image, Paragraph as _Paragraph, Button as _Button } from "components";
 
 export const StatsLeaders = styled.div(
-  ({ theme: { colors } }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     margin-top: 20px;
     width: 100%;
     display: flex;
@@ -14,6 +14,27 @@ export const StatsLeaders = styled.div(
 
     background-color: ${colors.darkGray};
     border-radius: 10px;
+
+    @media ${breakpoint.max.L} {
+      padding: 0;
+      padding-left: 10px;
+      padding-top: 25px;
+      padding-bottom: 21px;
+    }
+
+    @media ${breakpoint.max.M} {
+      padding: 0;
+      padding: 0 25px;
+      padding-top: 30px;
+      padding-bottom: 42px;
+    }
+
+    @media ${breakpoint.max.S} {
+      padding: 0;
+      padding-left: 10px;
+      padding-top: 25px;
+      padding-bottom: 21px;
+    }
   `
 );
 
@@ -28,7 +49,7 @@ export const Title = styled(_H2)(
 );
 
 export const Row = styled.div(
-  () => css`
+  ({ theme: { breakpoint } }) => css`
     width: 100%;
     margin-top: 52px;
     display: flex;
@@ -36,7 +57,24 @@ export const Row = styled.div(
     align-items: center;
 
     &:nth-child(1) {
-      margin-top: 50px;
+    }
+
+    @media ${breakpoint.max.L} {
+      margin-top: 26px;
+      &:nth-child(1) {
+        margin-top: 30px;
+      }
+    }
+
+    @media ${breakpoint.max.M} {
+      margin-top: 52px;
+    }
+
+    @media ${breakpoint.max.S} {
+      margin-top: 26px;
+      &:nth-child(1) {
+        margin-top: 30px;
+      }
     }
   `
 );
@@ -81,4 +119,16 @@ export const UsernameStatInfo = styled(_Paragraph)(
   `
 );
 
-export const Button = styled(_Button)(() => css``);
+export const Button = styled(_Button)(
+  ({ theme: { breakpoint } }) => css`
+    @media ${breakpoint.max.L} {
+      font-size: 14px;
+    }
+    @media ${breakpoint.max.M} {
+      font-size: 16px;
+    }
+    @media ${breakpoint.max.S} {
+      font-size: 14px;
+    }
+  `
+);

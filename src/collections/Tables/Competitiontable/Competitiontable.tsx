@@ -49,7 +49,7 @@ export const Competitiontable = ({
             <S.Tableheading>{nameColumnHead}</S.Tableheading>
             <S.Tableheading>{scoreColumnHead}</S.Tableheading>
             <S.Tableheading>{matchesColumnHead}</S.Tableheading>
-            <S.Tableheading>{profileColumnHead}</S.Tableheading>
+            <S.TableheadingProfile>{profileColumnHead}</S.TableheadingProfile>
           </S.Tablerow>
         </S.Tablehead>
         <S.Tablebody>

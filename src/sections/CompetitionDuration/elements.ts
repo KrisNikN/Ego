@@ -12,5 +12,10 @@ export const CompetitionDuration = styled(_H2)(
     margin-top: 60px;
     max-width: 1440px;
     text-align: center;
+    padding: 0 30px;
+
+    @media ${breakpoint.max.M} {
+      font-size: 24px;
+    }
   `
 );

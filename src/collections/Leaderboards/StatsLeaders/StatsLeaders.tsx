@@ -32,7 +32,7 @@ export const Statsleaders = ({
     <S.StatsLeaders {...props}>
       <S.Title>{title}</S.Title>
       {users.map(user => (
-        <S.Row>
+        <S.Row key={user.rank}>
           <S.Stat>{user.leaderOfStat}</S.Stat>
           <S.Info>
             <S.UsernameImage>

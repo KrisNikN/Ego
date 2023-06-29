@@ -12,28 +12,17 @@ export interface HeroCardProps {
 export const HeroCard = ({ images, ...props }: HeroCardProps) => {
   return (
     <S.Row {...props}>
-      {images.map(image =>
-        image.alt === "Dota2" ? (
-          <S.ImageContainer key={image.alt}>
-            <S.Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              objectFit='cover'
-            />
-          </S.ImageContainer>
-        ) : (
+      {images.map(image => (
+        <S.ImageToContainer key={image.src}>
           <S.Image
             src={image.src}
             alt={image.alt}
+            objectFit='cover'
             width={image.width}
             height={image.height}
-            layout='intrinsic'
-            key={image.alt}
           />
-        )
-      )}
+        </S.ImageToContainer>
+      ))}
     </S.Row>
   );
 };

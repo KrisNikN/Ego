@@ -34,9 +34,9 @@ export const TableCard = ({
       <S.Tablecell>{username}</S.Tablecell>
       <S.Tablecell>{score}</S.Tablecell>
       <S.Tablecell>{matches}</S.Tablecell>
-      <S.Tablecell>
+      <S.TablecellImage>
         <S.Image src='/imgs/EgoLogo.png' width={46} height={46} layout='intrinsic' />
-      </S.Tablecell>
+      </S.TablecellImage>
     </S.Tablerow>
   );
 };

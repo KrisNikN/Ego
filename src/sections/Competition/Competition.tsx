@@ -27,7 +27,7 @@ export const Competition = ({
   return (
     <S.Competition {...props}>
       <S.CompetitionColumn>
-        <S.Topthree rankedUsers={rankedUsers} {...topthreeProps} />
+        <S.TopthreeDesktop rankedUsers={rankedUsers} {...topthreeProps} />
         <S.Statsleaders users={statLeaders} {...statsleadersProps} />
       </S.CompetitionColumn>
       <S.CompetitionColumn>
@@ -35,6 +35,7 @@ export const Competition = ({
           <S.Detail>Not in Competition</S.Detail>
           <S.Detail>Time remaining 02:30:50</S.Detail>
         </S.DetailsContainer>
+        <S.TopthreeMobile rankedUsers={rankedUsers} {...topthreeProps} />
         <S.Competitiontable {...competitiontableProps} users={rankedUsers} />
       </S.CompetitionColumn>
     </S.Competition>

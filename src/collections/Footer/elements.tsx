@@ -18,10 +18,20 @@ export const ContainerFooter = styled.div(
     padding: 18px 50px;
     display: flex;
     justify-content: space-between;
+
+    @media ${breakpoint.max.M} {
+      padding: 15px 30px;
+    }
   `
 );
 
-export const Link = styled(_Link)(() => css``);
+export const Link = styled(_Link)(
+  ({ theme: { breakpoint } }) => css`
+    @media ${breakpoint.max.S} {
+      font-size: 10px;
+    }
+  `
+);
 
 export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -30,5 +40,9 @@ export const Paragraph = styled(_Paragraph)(
     font-weight: 500;
     line-height: 24px;
     color: ${colors.white};
+
+    @media ${breakpoint.max.S} {
+      font-size: 10px;
+    }
   `
 );

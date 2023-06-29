@@ -38,11 +38,53 @@ export const Tablerow = styled.tr(
 );
 
 export const Tableheading = styled.th(
-  ({ theme: { colors } }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
+    font-size: 16px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
     padding: 0 40px;
     padding-top: 30px;
     padding-bottom: 25px;
     color: ${colors.white};
+
+    @media ${breakpoint.max.L} {
+      padding: 0 30px;
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+
+    @media ${breakpoint.max.M} {
+      padding: 0 10px;
+      padding-top: 22px;
+      padding-bottom: 7px;
+    }
+    @media ${breakpoint.max.S} {
+      font-size: 14px;
+    }
+  `
+);
+
+export const TableheadingProfile = styled.th(
+  ({ theme: { colors, breakpoint } }) => css`
+    padding: 0 40px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+    color: ${colors.white};
+
+    @media ${breakpoint.max.L} {
+      display: none;
+    }
+    @media ${breakpoint.max.M} {
+      display: block;
+      padding: 0 10px;
+      padding-top: 22px;
+      padding-bottom: 7px;
+    }
+    @media ${breakpoint.max.S} {
+      display: none;
+    }
   `
 );
 

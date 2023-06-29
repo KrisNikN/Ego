@@ -9,32 +9,65 @@ export const Column = styled.div(
     align-items: center;
 
     &:nth-child(2) {
-      border-left: 1px solid ${colors.lightGray};
-      border-right: 1px solid ${colors.lightGray};
+      border-left: 3px solid ${colors.lightGray};
+      border-right: 3px solid ${colors.lightGray};
       padding: 0 32px;
+    }
+
+    @media ${breakpoint.max.M} {
+      &:nth-child(2) {
+        border: none;
+        padding: 0;
+      }
+      &:nth-child(2),
+      :nth-child(3) {
+        h2 {
+          border-top: 2px solid ${colors.lightGray};
+        }
+      }
+
+      margin-top: 30px;
     }
   `
 );
 
 export const JoinForm = styled(_JoinForm)(
-  () => css`
+  ({ theme: { breakpoint } }) => css`
     margin-top: 25px;
+
+    @media ${breakpoint.max.L} {
+      margin-top: 35px;
+    }
   `
 );
 
 export const Title = styled(_H2)(
-  ({ theme: { colors } }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     font-size: 34px;
     font-family: Inter;
     font-weight: 600;
     line-height: 44px;
     color: ${colors.white};
+    @media ${breakpoint.max.L} {
+      font-size: 24px;
+    }
+    text-align: center;
+
+    @media ${breakpoint.max.M} {
+      padding-top: 30px;
+    }
   `
 );
 
 export const Button = styled(_Button)(
-  () =>
+  ({ theme: { breakpoint } }) =>
     css`
       margin-top: 36px;
+      @media ${breakpoint.max.M} {
+        width: 70%;
+      }
+      @media ${breakpoint.max.S} {
+        width: 100%;
+      }
     `
 );
