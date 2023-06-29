@@ -74,7 +74,7 @@ export const users: UserProps[] = [
     username: "{username}"
   },
   {
-    leaderOfStat: undefined,
+    leaderOfStat: "{Stat Name}",
     leadingStatNumber: 3,
     matches: 4,
     rank: 10,

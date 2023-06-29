@@ -30,47 +30,27 @@ export const Statsleaders = ({
 }: StatsleadersProps & UsersProps) => {
   return (
     <S.StatsLeaders {...props}>
-      <S.Title>Inidivual Stats Leaders</S.Title>
-      <S.Row>
-        <S.Stat>{"{Stat Name}"}</S.Stat>
-        <S.Info>
-          <S.UsernameImage>
-            <S.Image src='/imgs/EgoLogo.png' width={46} height={46} layout='intrinsic' alt='Logo' />
-            <S.UsernameStatInfo>{"{username}"}: 7</S.UsernameStatInfo>
-          </S.UsernameImage>
-          <S.Button>PROFILE</S.Button>
-        </S.Info>
-      </S.Row>
-      <S.Row>
-        <S.Stat>{"{Stat Name}"}</S.Stat>
-        <S.Info>
-          <S.UsernameImage>
-            <S.Image src='/imgs/EgoLogo.png' width={46} height={46} layout='intrinsic' alt='Logo' />
-            <S.UsernameStatInfo>{"{username}"}: 7</S.UsernameStatInfo>
-          </S.UsernameImage>
-          <S.Button>PROFILE</S.Button>
-        </S.Info>
-      </S.Row>
-      <S.Row>
-        <S.Stat>{"{Stat Name}"}</S.Stat>
-        <S.Info>
-          <S.UsernameImage>
-            <S.Image src='/imgs/EgoLogo.png' width={46} height={46} layout='intrinsic' alt='Logo' />
-            <S.UsernameStatInfo>{"{username}"}: 7</S.UsernameStatInfo>
-          </S.UsernameImage>
-          <S.Button>PROFILE</S.Button>
-        </S.Info>
-      </S.Row>
-      <S.Row>
-        <S.Stat>{"{Stat Name}"}</S.Stat>
-        <S.Info>
-          <S.UsernameImage>
-            <S.Image src='/imgs/EgoLogo.png' width={46} height={46} layout='intrinsic' alt='Logo' />
-            <S.UsernameStatInfo>{"{username}"}: 7</S.UsernameStatInfo>
-          </S.UsernameImage>
-          <S.Button>PROFILE</S.Button>
-        </S.Info>
-      </S.Row>
+      <S.Title>{title}</S.Title>
+      {users.map(user => (
+        <S.Row>
+          <S.Stat>{user.leaderOfStat}</S.Stat>
+          <S.Info>
+            <S.UsernameImage>
+              <S.Image
+                src={logoImage.src}
+                width={logoImage.width}
+                height={logoImage.height}
+                layout='intrinsic'
+                alt={logoImage.alt}
+              />
+              <S.UsernameStatInfo>
+                {user.username}: {user.leadingStatNumber}
+              </S.UsernameStatInfo>
+            </S.UsernameImage>
+            <S.Button>PROFILE</S.Button>
+          </S.Info>
+        </S.Row>
+      ))}
     </S.StatsLeaders>
   );
 };
