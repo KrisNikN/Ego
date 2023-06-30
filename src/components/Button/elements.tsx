@@ -26,6 +26,22 @@ const buttonStyles: Record<
       opacity: 0.8;
     }
   `,
+  discord: css`
+    outline: none;
+    border: none;
+    background-color: ${({ theme }) => theme.colors.purple};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 73px;
+    border-radius: 10px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  `,
   secondary: css`
     background-color: transparent;
     border: 1px solid ${({ theme }) => theme.colors.yellow};

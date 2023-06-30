@@ -31,7 +31,7 @@ export const ImageToContainer = styled.div(
     position: relative;
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    scroll-snap-align: start;
+    scroll-snap-align: unset;
 
     &::after {
       content: "";

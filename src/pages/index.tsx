@@ -1,11 +1,12 @@
 import { NextPage } from "next";
-import { Hero, Power, CompetitionDuration, Competition, HowItWorks } from "sections";
+import { Hero, Power, CompetitionDuration, Competition, HowItWorks, Discord } from "sections";
 import {
   heroProps,
   powerProps,
   competitionDurationProps,
   competitionProps,
-  howItWorksProps
+  howItWorksProps,
+  discordProps
 } from "data";
 
 const Home: NextPage = () => {
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
       <CompetitionDuration {...competitionDurationProps} />
       <Competition {...competitionProps} />
       <HowItWorks {...howItWorksProps} />
+      <Discord {...discordProps} />
     </>
   );
 };

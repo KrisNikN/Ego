@@ -12,6 +12,7 @@ export const BlockCard = styled.div(
     padding-top: 33px;
     padding-bottom: 37px;
     max-width: 320px;
+    min-height: 238px;
   `
 );
 

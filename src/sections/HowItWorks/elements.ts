@@ -12,6 +12,7 @@ export const HowItWorks = styled.section(
     flex-direction: column;
     @media ${breakpoint.max.M} {
       padding: 50px 30px;
+      padding-bottom: 60px;
     }
   `
 );
@@ -41,5 +42,9 @@ export const BlockCard = styled(_BlockCard)(
     /* margin-left: 20px; */
     margin: 10px;
     margin-top: 63px;
+
+    @media ${breakpoint.max.M} {
+      max-width: 354px;
+    }
   `
 );

@@ -19,7 +19,8 @@ declare module "styled-components" {
     | "silver"
     | "gold"
     | "purplish"
-    | "yellow";
+    | "yellow"
+    | "purple";
 
   type Gradients =
     | "blueToPurple"

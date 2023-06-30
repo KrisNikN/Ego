@@ -6,3 +6,4 @@ export * from "./competitionDurationProp";
 export * from "./users";
 export * from "./competitionProps";
 export * from "./howItWorksProps";
+export * from "./discordProps";

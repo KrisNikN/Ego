@@ -12,7 +12,7 @@ export const HowItWorks = ({ cards, title, ...props }: HowItWorksProps) => {
       <S.Title>{title}</S.Title>
       <S.BlocksContainer>
         {cards.map(card => (
-          <S.BlockCard {...card} />
+          <S.BlockCard {...card} key={card.title} />
         ))}
       </S.BlocksContainer>
     </S.HowItWorks>

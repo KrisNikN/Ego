@@ -15,7 +15,8 @@ export const theme: DefaultTheme = {
     silver: "#BCBCBC",
     gold: "#DEA30A",
     purplish: "#793E3E",
-    yellow: "#F2C44E"
+    yellow: "#F2C44E",
+    purple: "#6A6DB0"
   },
   typography,
   gradients: {

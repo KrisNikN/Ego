@@ -9,20 +9,32 @@ export interface HeroCardProps {
   }[];
 }
 
-export const HeroCard = ({ images, ...props }: HeroCardProps) => {
+export interface AdditionalProps {
+  index: number;
+}
+
+export const HeroCard = ({ images, index, ...props }: HeroCardProps & AdditionalProps) => {
   return (
     <S.Row {...props}>
-      {images.map(image => (
-        <S.ImageToContainer key={image.src}>
-          <S.Image
-            src={image.src}
-            alt={image.alt}
-            objectFit='cover'
-            width={image.width}
-            height={image.height}
-          />
-        </S.ImageToContainer>
-      ))}
+      {images.map((image, imageIndex) => {
+        let imageId: string = `slide-${imageIndex}`;
+
+        if (index > 0) {
+          imageId = `slide-${imageIndex + 4}`;
+        }
+
+        return (
+          <S.ImageToContainer key={image.alt} id={imageId}>
+            <S.Image
+              src={image.src}
+              alt={image.alt}
+              objectFit='cover'
+              width={image.width}
+              height={image.height}
+            />
+          </S.ImageToContainer>
+        );
+      })}
     </S.Row>
   );
 };

@@ -3,7 +3,13 @@ import * as S from "./elements";
 import type { HTMLHeaderProps } from "types";
 
 export interface HeaderProps {
-  discordImage: {
+  discordImageDesktop: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  discordImageMobile: {
     src: string;
     width: number;
     height: number;
@@ -15,13 +21,21 @@ export interface HeaderProps {
     height: number;
     alt: string;
   };
+  egoMainLogoMobile: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
   searchInputPlaceholder: string;
   signButtonText: string;
 }
 
 export const Header = ({
-  discordImage,
+  discordImageMobile,
+  discordImageDesktop,
   egoMainLogo,
+  egoMainLogoMobile,
   searchInputPlaceholder,
   signButtonText,
   ...props
@@ -29,13 +43,36 @@ export const Header = ({
   return (
     <S.Header {...props}>
       <S.HeaderContainer>
-        <S.Image
-          src={discordImage.src}
-          width={discordImage.width}
-          height={discordImage.height}
-          alt={discordImage.alt}
-          layout='intrinsic'
-        />
+        <S.ImageContainerDesktop>
+          <S.Image
+            src={discordImageDesktop.src}
+            width={discordImageDesktop.width}
+            height={discordImageDesktop.height}
+            alt={discordImageDesktop.alt}
+            layout='intrinsic'
+          />
+        </S.ImageContainerDesktop>
+
+        <S.ImageContainerMobile>
+          <S.Image
+            src={discordImageMobile.src}
+            width={discordImageMobile.width}
+            height={discordImageMobile.height}
+            alt={discordImageMobile.alt}
+            layout='intrinsic'
+          />
+        </S.ImageContainerMobile>
+
+        <S.ImageContainerMobile>
+          <S.Image
+            src={egoMainLogoMobile.src}
+            width={egoMainLogoMobile.width}
+            height={egoMainLogoMobile.height}
+            alt={egoMainLogoMobile.alt}
+            layout='intrinsic'
+          />
+        </S.ImageContainerMobile>
+
         <S.LogoAndInputsContainer>
           <S.LogoWrapper>
             <S.Image
@@ -47,8 +84,9 @@ export const Header = ({
             />
           </S.LogoWrapper>
           <S.SearchInput placeholder={searchInputPlaceholder} />
-          <S.Button variant='secondary'>{signButtonText}</S.Button>
+          <S.ButtonDesktop variant='secondary'>{signButtonText}</S.ButtonDesktop>
         </S.LogoAndInputsContainer>
+        <S.ButtonMobile variant='secondary'>{signButtonText}</S.ButtonMobile>
       </S.HeaderContainer>
     </S.Header>
   );
