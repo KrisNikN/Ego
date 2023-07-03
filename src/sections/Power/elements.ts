@@ -4,6 +4,7 @@ import { H2 as _H2 } from "components";
 
 export const Power = styled.section(
   ({ theme: { breakpoint } }) => css`
+    margin: 0 auto;
     padding: 0 50px;
     margin-top: 80px;
     display: flex;
@@ -13,6 +14,7 @@ export const Power = styled.section(
       flex-direction: column;
       margin: 0;
     }
+    max-width: 1440px;
   `
 );
 
