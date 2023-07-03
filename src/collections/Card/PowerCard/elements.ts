@@ -14,7 +14,7 @@ export const Column = styled.div(
       padding: 0 32px;
     }
 
-    @media ${breakpoint.max.M} {
+    @media ${breakpoint.max.L} {
       &:nth-child(2) {
         border: none;
         padding: 0;
@@ -53,7 +53,7 @@ export const Title = styled(_H2)(
     }
     text-align: center;
 
-    @media ${breakpoint.max.M} {
+    @media ${breakpoint.max.L} {
       padding-top: 30px;
     }
   `
@@ -63,7 +63,7 @@ export const Button = styled(_Button)(
   ({ theme: { breakpoint } }) =>
     css`
       margin-top: 36px;
-      @media ${breakpoint.max.M} {
+      @media ${breakpoint.max.L} {
         width: 70%;
       }
       @media ${breakpoint.max.S} {

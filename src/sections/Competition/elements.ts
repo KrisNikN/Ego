@@ -4,8 +4,9 @@ import {
   Statsleaders as _Statsleaders,
   Competitiontable as _Competitiontable
 } from "collections";
+import { H2 as _H2 } from "components";
 
-export const Competition = styled.section(
+export const Competition = styled.div(
   ({ theme: { breakpoint } }) => css`
     padding: 50px;
     display: flex;
@@ -17,6 +18,34 @@ export const Competition = styled.section(
     @media ${breakpoint.max.M} {
       flex-direction: column-reverse;
       padding: 0 30px;
+    }
+  `
+);
+
+export const CompetitionWraper = styled.section(
+  ({ theme: { breakpoint } }) => css`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+  `
+);
+export const CompetitionDuration = styled(_H2)(
+  ({ theme: { colors, breakpoint } }) => css`
+    margin: 0 auto;
+    font-size: 34px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 44px;
+    color: ${colors.white};
+
+    margin-top: 60px;
+    max-width: 1440px;
+    text-align: center;
+    padding: 0 30px;
+
+    @media ${breakpoint.max.M} {
+      font-size: 24px;
     }
   `
 );

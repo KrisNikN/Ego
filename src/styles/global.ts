@@ -25,4 +25,28 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
     }
+
+    .swiper-pagination {
+        bottom: -20px;
+        padding-right: 30px;
+    }
+    .swiper-pagination-bullet{
+        background-color: #3f3f3f;
+    }
+
+    .swiper-pagination-bullet-active {
+    opacity: 1;
+    background-color: #dea30a; /* Set the bullet color when active */
+    }
+
+    /* .swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -20px;
+} */
+
+.swiper{
+    padding-bottom: 50px;
+}
 `;

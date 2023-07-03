@@ -10,7 +10,7 @@ export const Power = styled.section(
     display: flex;
     justify-content: space-around;
 
-    @media ${breakpoint.max.M} {
+    @media ${breakpoint.max.L} {
       flex-direction: column;
       margin: 0;
     }

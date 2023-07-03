@@ -41,14 +41,14 @@ export const HeroImageSlider = ({
         const number = activeSlide - lastActiveSlide;
 
         if (container) {
-          let pixelsToScroll = number * 355;
+          let pixelsToScroll = number * 340;
           container.scrollLeft += pixelsToScroll;
         }
       } else {
         const number = lastActiveSlide - activeSlide;
 
         if (container) {
-          let pixelsToScroll = number * 355;
+          let pixelsToScroll = number * 340;
           container.scrollLeft -= pixelsToScroll;
         }
       }
@@ -68,7 +68,7 @@ export const HeroImageSlider = ({
     <S.Container>
       {images.map(
         (image, index) =>
-          index !== images.length - 1 && (
+          index !== images.length && (
             <S.Slide
               active={activeSlide === index}
               key={index}

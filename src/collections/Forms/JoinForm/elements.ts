@@ -4,10 +4,10 @@ import { Paragraph as _Paragraph, FormInput as _FormInput, Button as _Button } f
 export const JoinForm = styled.form(
   ({ theme: { breakpoint } }) => css`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
 
-    @media ${breakpoint.max.M} {
+    @media ${breakpoint.max.L} {
       flex-direction: column;
       align-items: center;
     }
@@ -16,9 +16,16 @@ export const JoinForm = styled.form(
 
 export const InputContainer = styled.div(
   ({ theme: { breakpoint } }) => css`
+    position: relative;
+    top: -5px;
     display: flex;
     flex-direction: column;
     width: 232px;
+
+    @media ${breakpoint.max.L} {
+      top: 0;
+      width: 70%;
+    }
 
     @media ${breakpoint.max.S} {
       width: 100%;
@@ -42,7 +49,7 @@ export const Button = styled(_Button)(
     css`
       margin-left: 25px;
 
-      @media ${breakpoint.max.M} {
+      @media ${breakpoint.max.L} {
         margin: 0;
         margin-top: 30px;
         width: 70%;

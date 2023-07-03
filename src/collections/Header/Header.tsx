@@ -43,7 +43,7 @@ export const Header = ({
   return (
     <S.Header {...props}>
       <S.HeaderContainer>
-        <S.ImageContainerDesktop>
+        <S.ImageContainerDesktop href='https://discord.com/' target='_blank'>
           <S.Image
             src={discordImageDesktop.src}
             width={discordImageDesktop.width}
@@ -53,7 +53,7 @@ export const Header = ({
           />
         </S.ImageContainerDesktop>
 
-        <S.ImageContainerMobile>
+        <S.ImageContainerMobile href='https://discord.com/' target='_blank'>
           <S.Image
             src={discordImageMobile.src}
             width={discordImageMobile.width}
@@ -63,7 +63,7 @@ export const Header = ({
           />
         </S.ImageContainerMobile>
 
-        <S.ImageContainerMobile>
+        <S.LogoWrapperMobile>
           <S.Image
             src={egoMainLogoMobile.src}
             width={egoMainLogoMobile.width}
@@ -71,7 +71,7 @@ export const Header = ({
             alt={egoMainLogoMobile.alt}
             layout='intrinsic'
           />
-        </S.ImageContainerMobile>
+        </S.LogoWrapperMobile>
 
         <S.LogoAndInputsContainer>
           <S.LogoWrapper>
@@ -86,6 +86,7 @@ export const Header = ({
           <S.SearchInput placeholder={searchInputPlaceholder} />
           <S.ButtonDesktop variant='secondary'>{signButtonText}</S.ButtonDesktop>
         </S.LogoAndInputsContainer>
+
         <S.ButtonMobile variant='secondary'>{signButtonText}</S.ButtonMobile>
       </S.HeaderContainer>
     </S.Header>

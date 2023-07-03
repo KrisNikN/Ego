@@ -59,8 +59,9 @@ export const ButtonMobile = styled(_Button)(
     font-size: 14px;
     @media ${breakpoint.max.M} {
       display: block;
-      min-width: 80px;
-      max-height: 48px;
+
+      padding: 11px 13px;
+      line-height: 16px;
     }
   `
 );
@@ -84,7 +85,7 @@ export const SearchInput = styled(_SearchInput)(
   `
 );
 
-export const ImageContainerDesktop = styled.div(
+export const ImageContainerDesktop = styled.a(
   ({ theme: { colors, breakpoint } }) => css`
     @media ${breakpoint.max.L} {
       display: none;
@@ -92,11 +93,21 @@ export const ImageContainerDesktop = styled.div(
   `
 );
 
-export const ImageContainerMobile = styled.div(
+export const ImageContainerMobile = styled.a(
   ({ theme: { colors, breakpoint } }) => css`
     display: none;
     @media ${breakpoint.max.L} {
       display: block;
+    }
+  `
+);
+
+export const LogoWrapperMobile = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: none;
+    @media ${breakpoint.max.M} {
+      display: block;
+      margin-left: 30px;
     }
   `
 );

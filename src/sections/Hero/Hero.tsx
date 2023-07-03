@@ -1,6 +1,5 @@
 import * as S from "./elements";
 import { HeroCardProps } from "collections";
-import { useRef } from "react";
 
 export interface HeroProps {
   heroImage: {
@@ -19,8 +18,6 @@ export interface HeroProps {
 }
 
 export const Hero = ({ heroImage, heroImageMobile, rows, ...props }: HeroProps) => {
-  const rowsContainerRef = useRef(null);
-
   return (
     <S.Hero {...props}>
       <S.ImageContainer>
@@ -46,14 +43,10 @@ export const Hero = ({ heroImage, heroImageMobile, rows, ...props }: HeroProps) 
           <S.HeroCard index={index} {...row} key={row.images[0].alt} />
         ))}
       </S.RowsContainerDesktop>
-      <S.RowsContainerMobile ref={rowsContainerRef} id='contacio'>
-        {rows.map((row, index) => (
-          <S.HeroCardMobile index={index} {...row} key={row.images[0].alt} />
-        ))}
+
+      <S.RowsContainerMobile>
+        <S.Swiper rows={rows} />
       </S.RowsContainerMobile>
-      <S.ContainerSlider>
-        <S.HeroImageSlider rows={rows} rowsContainerRef={rowsContainerRef} />
-      </S.ContainerSlider>
     </S.Hero>
   );
 };

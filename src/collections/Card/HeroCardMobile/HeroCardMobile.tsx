@@ -1,5 +1,6 @@
 import { AdditionalProps, HeroCardProps } from "../HeroCard/HeroCard";
 import * as S from "./elements";
+import { SwiperSlide } from "swiper/react";
 
 export const HeroCardMobile = ({ images, index, ...props }: HeroCardProps & AdditionalProps) => {
   return (
@@ -11,15 +12,17 @@ export const HeroCardMobile = ({ images, index, ...props }: HeroCardProps & Addi
         }
 
         return (
-          <S.ImageToContainer {...props} key={image.alt} id={imageId}>
-            <S.Image
-              src={image.src}
-              alt={image.alt}
-              objectFit='cover'
-              width={image.width}
-              height={image.height}
-            />
-          </S.ImageToContainer>
+          <SwiperSlide>
+            <S.ImageToContainer {...props} key={image.alt} id={imageId}>
+              <S.Image
+                src={image.src}
+                alt={image.alt}
+                objectFit='cover'
+                width={image.width}
+                height={image.height}
+              />
+            </S.ImageToContainer>
+          </SwiperSlide>
         );
       })}
     </>
