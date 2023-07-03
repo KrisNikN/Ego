@@ -3,7 +3,6 @@ import { Image as _Image } from "components";
 import {
   HeroCard as _HeroCard,
   HeroImageSlider as _HeroImageSlider,
-  HeroCardMobile as _HeroCardMobile,
   Swiper as _Swiper
 } from "collections";
 
@@ -117,7 +116,5 @@ export const ContainerSlider = styled.div(
 export const HeroCard = styled(_HeroCard)(() => css``);
 
 export const HeroImageSlider = styled(_HeroImageSlider)(() => css``);
-
-export const HeroCardMobile = styled(_HeroCardMobile)(() => css``);
 
 export const Swiper = styled(_Swiper)(() => css``);

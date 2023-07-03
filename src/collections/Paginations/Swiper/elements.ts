@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components";
 import { Image as _Image } from "components";
-import { Swiper as _Swiper, SwiperSlide as _SwiperSlide } from "swiper/react";
-import { HeroCardMobile as _HeroCardMobile } from "collections/Card";
-
-export const HeroCardMobile = styled(_HeroCardMobile)(() => css``);
 
 export const Image = styled(_Image)(
   () => css`
@@ -46,7 +42,3 @@ export const ImageToContainer = styled.div(
     }
   `
 );
-
-export const Swiper = styled(_Swiper)(() => css``);
-
-export const SwiperSlide = styled(_SwiperSlide)(() => css``);
