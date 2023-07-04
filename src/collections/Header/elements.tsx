@@ -47,6 +47,7 @@ export const Image = styled(_Image)(() => css``);
 
 export const ButtonDesktop = styled(_Button)(
   ({ theme: { colors, breakpoint } }) => css`
+    min-width: 117px;
     @media ${breakpoint.max.M} {
       display: none;
     }
@@ -66,10 +67,13 @@ export const ButtonMobile = styled(_Button)(
   `
 );
 
-export const LogoWrapper = styled.div(
+export const LogoWrapper = styled.a(
   ({ theme: { colors, breakpoint } }) => css`
     margin-right: 88px;
-
+    min-width: 144px;
+    @media ${breakpoint.max.L} {
+      margin-right: 58px;
+    }
     @media ${breakpoint.max.M} {
       margin: 0;
     }
@@ -79,6 +83,7 @@ export const LogoWrapper = styled.div(
 export const SearchInput = styled(_SearchInput)(
   ({ theme: { colors, breakpoint } }) => css`
     margin-right: 34px;
+    flex-shrink: 2;
     @media ${breakpoint.max.M} {
       display: none;
     }
@@ -87,7 +92,8 @@ export const SearchInput = styled(_SearchInput)(
 
 export const ImageContainerDesktop = styled.a(
   ({ theme: { colors, breakpoint } }) => css`
-    @media ${breakpoint.max.L} {
+    margin-right: 150px;
+    @media ${breakpoint.max.M} {
       display: none;
     }
   `
@@ -96,13 +102,14 @@ export const ImageContainerDesktop = styled.a(
 export const ImageContainerMobile = styled.a(
   ({ theme: { colors, breakpoint } }) => css`
     display: none;
-    @media ${breakpoint.max.L} {
+
+    @media ${breakpoint.max.M} {
       display: block;
     }
   `
 );
 
-export const LogoWrapperMobile = styled.div(
+export const LogoWrapperMobile = styled.a(
   ({ theme: { colors, breakpoint } }) => css`
     display: none;
     @media ${breakpoint.max.M} {

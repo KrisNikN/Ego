@@ -8,12 +8,12 @@ import { H2 as _H2 } from "components";
 
 export const Competition = styled.div(
   ({ theme: { breakpoint } }) => css`
+    margin: 0 auto;
     padding: 50px;
     display: flex;
     width: 100%;
     justify-content: space-between;
     max-width: 1440px;
-    margin: 0 auto;
 
     @media ${breakpoint.max.M} {
       flex-direction: column-reverse;
@@ -24,6 +24,7 @@ export const Competition = styled.div(
 
 export const CompetitionWraper = styled.section(
   ({ theme: { breakpoint } }) => css`
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     width: 100%;

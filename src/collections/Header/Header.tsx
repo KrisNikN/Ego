@@ -63,7 +63,7 @@ export const Header = ({
           />
         </S.ImageContainerMobile>
 
-        <S.LogoWrapperMobile>
+        <S.LogoWrapperMobile href='/'>
           <S.Image
             src={egoMainLogoMobile.src}
             width={egoMainLogoMobile.width}
@@ -74,7 +74,7 @@ export const Header = ({
         </S.LogoWrapperMobile>
 
         <S.LogoAndInputsContainer>
-          <S.LogoWrapper>
+          <S.LogoWrapper href='/'>
             <S.Image
               src={egoMainLogo.src}
               width={egoMainLogo.width}

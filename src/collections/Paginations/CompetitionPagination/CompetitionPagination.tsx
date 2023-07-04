@@ -100,7 +100,12 @@ export const CompetitionPagination = ({
       )}
       {pages.map(page =>
         page <= maxPageNumberLimit && page >= minPageNumberLimit ? (
-          <S.NumberButton onClick={handlePageButtonClick} id={page.toString()} key={page}>
+          <S.NumberButton
+            checked={currentLastUser / 10 === page}
+            onClick={handlePageButtonClick}
+            id={page.toString()}
+            key={page}
+          >
             {page}
           </S.NumberButton>
         ) : null

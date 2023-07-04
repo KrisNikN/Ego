@@ -33,11 +33,11 @@ export const Column = styled.div(
 
 export const JoinForm = styled(_JoinForm)(
   ({ theme: { breakpoint } }) => css`
-    margin-top: 25px;
+    margin-top: 36px;
 
-    @media ${breakpoint.max.L} {
+    /* @media ${breakpoint.max.L} {
       margin-top: 35px;
-    }
+    } */
   `
 );
 

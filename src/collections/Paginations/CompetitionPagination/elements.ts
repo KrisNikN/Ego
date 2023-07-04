@@ -27,8 +27,8 @@ export const ArrowButton = styled.button(
 
 export const Image = styled(_Image)(() => css``);
 
-export const NumberButton = styled.button(
-  ({ theme: { colors } }) => css`
+export const NumberButton = styled.button<{ checked?: boolean }>(
+  ({ theme: { colors }, checked }) => css`
     color: ${colors.white};
     font-size: 16px;
     font-family: Inter;
@@ -42,5 +42,11 @@ export const NumberButton = styled.button(
     padding: 0;
     margin: 0 10px;
     cursor: pointer;
+
+    ${checked === true &&
+    css`
+      color: ${colors.gold};
+      opacity: 0.8;
+    `}
   `
 );
