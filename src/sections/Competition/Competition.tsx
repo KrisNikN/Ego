@@ -1,4 +1,4 @@
-import { CompetitiontableProps, StatsleadersProps, TopthreeProps } from "collections";
+import { CompetitionТableProps, StatsLeadersProps, TopthreeProps } from "collections";
 import * as S from "./elements";
 
 export interface CompetitionProps {
@@ -11,29 +11,29 @@ export interface CompetitionProps {
     matches: number;
     rank: number;
   }[];
-  statsleadersProps: StatsleadersProps;
-  competitiontableProps: CompetitiontableProps;
+  statsLeadersProps: StatsLeadersProps;
+  competitionТableProps: CompetitionТableProps;
   topthreeProps: TopthreeProps;
 }
 
 export const Competition = ({
   rankedUsers,
-  statsleadersProps,
+  statsLeadersProps,
   topthreeProps,
-  competitiontableProps,
-  competitionDuration: competitionDurationProps,
+  competitionТableProps,
+  competitionDuration,
   ...props
 }: CompetitionProps) => {
   const statLeaders = rankedUsers.filter(user => user.leaderOfStat !== undefined);
 
   return (
     <S.CompetitionWraper {...props}>
-      <S.CompetitionDuration>{competitionDurationProps}</S.CompetitionDuration>
+      <S.CompetitionDuration>{competitionDuration}</S.CompetitionDuration>
 
       <S.Competition>
         <S.CompetitionColumn>
           <S.TopthreeDesktop rankedUsers={rankedUsers} {...topthreeProps} />
-          <S.Statsleaders users={statLeaders} {...statsleadersProps} />
+          <S.Statsleaders users={statLeaders} {...statsLeadersProps} />
         </S.CompetitionColumn>
         <S.CompetitionColumn>
           <S.DetailsContainer>
@@ -41,7 +41,7 @@ export const Competition = ({
             <S.Detail>Time remaining 02:30:50</S.Detail>
           </S.DetailsContainer>
           <S.TopthreeMobile rankedUsers={rankedUsers} {...topthreeProps} />
-          <S.Competitiontable {...competitiontableProps} users={rankedUsers} />
+          <S.CompetitionТable {...competitionТableProps} users={rankedUsers} />
         </S.CompetitionColumn>
       </S.Competition>
     </S.CompetitionWraper>

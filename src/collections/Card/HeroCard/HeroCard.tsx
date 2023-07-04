@@ -24,7 +24,7 @@ export const HeroCard = ({ images, index, ...props }: HeroCardProps & Additional
         }
 
         return (
-          <S.ImageToContainer key={image.alt} id={imageId}>
+          <S.ImageContainer key={image.alt} id={imageId}>
             <S.Image
               src={image.src}
               alt={image.alt}
@@ -32,7 +32,7 @@ export const HeroCard = ({ images, index, ...props }: HeroCardProps & Additional
               width={image.width}
               height={image.height}
             />
-          </S.ImageToContainer>
+          </S.ImageContainer>
         );
       })}
     </S.Row>

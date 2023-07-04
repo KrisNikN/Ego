@@ -26,7 +26,7 @@ export const Image = styled(_Image)(
   `
 );
 
-export const ImageToContainer = styled.div(
+export const ImageContainer = styled.div(
   ({ theme: { colors, breakpoint, gradients } }) => css`
     position: relative;
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);

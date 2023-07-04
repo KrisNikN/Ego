@@ -25,11 +25,11 @@ export const competitionProps: CompetitionProps = {
       width: 32
     }
   },
-  statsleadersProps: {
+  statsLeadersProps: {
     logoImage: { src: "/imgs/EgoLogo.png", width: 46, height: 46, alt: "logo" },
     title: "Inidivual Stats Leaders"
   },
-  competitiontableProps: {
+  competitionТableProps: {
     tableCardProps: {
       logoImage: {
         src: "/imgs/EgoLogo.png",

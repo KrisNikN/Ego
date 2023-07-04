@@ -15,6 +15,9 @@ export const Power = styled.section(
       margin: 0;
     }
     max-width: 1440px;
+    @media ${breakpoint.max.M} {
+      padding: 0 30px;
+    }
   `
 );
 

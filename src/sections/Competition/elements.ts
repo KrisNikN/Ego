@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import {
   Topthree as _Topthree,
-  Statsleaders as _Statsleaders,
-  Competitiontable as _Competitiontable
+  StatsLeaders as _Statsleaders,
+  CompetitionТable as _CompetitionТable
 } from "collections";
 import { H2 as _H2 } from "components";
 
@@ -160,4 +160,4 @@ export const TopthreeMobile = styled(_Topthree)(
 
 export const Statsleaders = styled(_Statsleaders)(() => css``);
 
-export const Competitiontable = styled(_Competitiontable)(() => css``);
+export const CompetitionТable = styled(_CompetitionТable)(() => css``);

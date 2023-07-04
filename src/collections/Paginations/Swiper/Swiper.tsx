@@ -9,7 +9,7 @@ export interface SwiperProps {
   rows: HeroCardProps[];
 }
 
-export const Swiper = ({ rows, ...props }: SwiperProps) => {
+export const Swiper = ({ rows }: SwiperProps) => {
   const breakpoints = {
     732: {
       slidesPerView: 2.4,
@@ -35,13 +35,12 @@ export const Swiper = ({ rows, ...props }: SwiperProps) => {
       spaceBetween={20}
       pagination={{ clickable: true }}
       slidesPerView={1.2}
-      onSwiper={swiper => console.log(swiper)}
       breakpoints={breakpoints}
     >
       {rows.map(row =>
         row.images.map(image => (
           <SwiperSlide key={image.alt}>
-            <S.ImageToContainer>
+            <S.ImageContainer>
               <S.Image
                 src={image.src}
                 alt={image.alt}
@@ -49,7 +48,7 @@ export const Swiper = ({ rows, ...props }: SwiperProps) => {
                 height={image.height}
                 layout='intrinsic'
               />
-            </S.ImageToContainer>
+            </S.ImageContainer>
           </SwiperSlide>
         ))
       )}

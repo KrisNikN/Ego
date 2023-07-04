@@ -8,7 +8,7 @@ export interface UsersProps {
   users: UserProps[];
 }
 
-export interface CompetitiontableProps {
+export interface CompetitionТableProps {
   tableCardProps: TableCardProps;
   competitionPaginationProps: CompetitionPaginationProps;
   rankColumnHead: string;
@@ -18,7 +18,7 @@ export interface CompetitiontableProps {
   profileColumnHead: string;
 }
 
-export const Competitiontable = ({
+export const CompetitionТable = ({
   users,
   tableCardProps,
   competitionPaginationProps,
@@ -28,7 +28,7 @@ export const Competitiontable = ({
   rankColumnHead,
   scoreColumnHead,
   ...props
-}: UsersProps & CompetitiontableProps) => {
+}: UsersProps & CompetitionТableProps) => {
   const [currentLastUser, setLastUser] = useState<number>(10);
   const [usersArrayToShow, setUsersArray] = useState<UserProps[]>(users.slice(0, 10));
   useEffect(() => {

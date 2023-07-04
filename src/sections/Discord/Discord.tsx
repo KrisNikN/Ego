@@ -12,7 +12,7 @@ export interface DiscordProps {
 
 export const Discord = ({ discordImage, paragraph, ...props }: DiscordProps) => {
   return (
-    <S.Container>
+    <S.Container {...props}>
       <S.Discord>
         <S.Paragraph>{paragraph}</S.Paragraph>
         <S.Button variant='discord'>

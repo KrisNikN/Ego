@@ -1,6 +1,6 @@
 import * as S from "./elements";
 
-export interface StatsleadersProps {
+export interface StatsLeadersProps {
   title: string;
 
   logoImage: {
@@ -22,12 +22,12 @@ interface UsersProps {
   }[];
 }
 
-export const Statsleaders = ({
+export const StatsLeaders = ({
   title,
   users,
   logoImage,
   ...props
-}: StatsleadersProps & UsersProps) => {
+}: StatsLeadersProps & UsersProps) => {
   return (
     <S.StatsLeaders {...props}>
       <S.Title>{title}</S.Title>
