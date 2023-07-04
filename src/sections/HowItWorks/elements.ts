@@ -45,6 +45,7 @@ export const BlockCard = styled(_BlockCard)(
 
     @media ${breakpoint.max.M} {
       max-width: 354px;
+      margin-top: 50px;
     }
   `
 );

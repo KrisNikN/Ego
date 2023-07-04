@@ -1,6 +1,8 @@
 import { HeaderProps } from "collections";
 
 export const headerProps: HeaderProps = {
+  discordLink: "https://discord.com/",
+  logoLink: "/",
   discordImageDesktop: {
     src: "/imgs/DiscordLogo.png",
     alt: "Discord Logo",

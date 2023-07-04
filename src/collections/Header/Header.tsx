@@ -3,6 +3,8 @@ import * as S from "./elements";
 import type { HTMLHeaderProps } from "types";
 
 export interface HeaderProps {
+  discordLink: string;
+  logoLink: string;
   discordImageDesktop: {
     src: string;
     width: number;
@@ -32,6 +34,8 @@ export interface HeaderProps {
 }
 
 export const Header = ({
+  discordLink,
+  logoLink,
   discordImageMobile,
   discordImageDesktop,
   egoMainLogo,
@@ -43,7 +47,7 @@ export const Header = ({
   return (
     <S.Header {...props}>
       <S.HeaderContainer>
-        <S.ImageContainerDesktop href='https://discord.com/' target='_blank'>
+        <S.ImageContainerDesktop href={discordLink} target='_blank'>
           <S.Image
             src={discordImageDesktop.src}
             width={discordImageDesktop.width}
@@ -53,7 +57,7 @@ export const Header = ({
           />
         </S.ImageContainerDesktop>
 
-        <S.ImageContainerMobile href='https://discord.com/' target='_blank'>
+        <S.ImageContainerMobile href={discordLink} target='_blank'>
           <S.Image
             src={discordImageMobile.src}
             width={discordImageMobile.width}
@@ -63,7 +67,7 @@ export const Header = ({
           />
         </S.ImageContainerMobile>
 
-        <S.LogoWrapperMobile href='/'>
+        <S.LogoWrapperMobile href={logoLink}>
           <S.Image
             src={egoMainLogoMobile.src}
             width={egoMainLogoMobile.width}
@@ -74,7 +78,7 @@ export const Header = ({
         </S.LogoWrapperMobile>
 
         <S.LogoAndInputsContainer>
-          <S.LogoWrapper href='/'>
+          <S.LogoWrapper href={logoLink}>
             <S.Image
               src={egoMainLogo.src}
               width={egoMainLogo.width}
