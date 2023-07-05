@@ -19,14 +19,16 @@ declare module "styled-components" {
     | "silver"
     | "gold"
     | "purplish"
-    | "yellow";
+    | "yellow"
+    | "purple";
 
   type Gradients =
     | "blueToPurple"
     | "buttonBackground"
     | "silverToGray"
     | "yellowToGold"
-    | "purplishToBlack";
+    | "purplishToBlack"
+    | "heroImage";
 
   type Breakpoints = {
     max: MaxWidthBreakpointsType;

@@ -1,12 +1,15 @@
 import { NextPage } from "next";
-import {} from "sections";
-import { SearchInput, Link } from "components";
+import { Hero, Power, Competition, HowItWorks, Discord } from "sections";
+import { heroProps, powerProps, competitionProps, howItWorksProps, discordProps } from "data";
 
 const Home: NextPage = () => {
   return (
     <>
-      <SearchInput placeholder='Search...' />
-      <Link href='/'>Terms and Policies</Link>
+      <Hero {...heroProps} />
+      <Power {...powerProps} />
+      <Competition {...competitionProps} />
+      <HowItWorks {...howItWorksProps} />
+      <Discord {...discordProps} />
     </>
   );
 };

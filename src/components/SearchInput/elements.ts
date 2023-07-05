@@ -6,7 +6,7 @@ export const Input = styled.input(
     padding-top: 11px;
     padding-bottom: 11px;
     padding-left: 44px;
-    width: 360px;
+
     outline: transparent;
     background: transparent;
     border: 1px solid ${colors.lightGray};
@@ -14,6 +14,7 @@ export const Input = styled.input(
     border-radius: 5px;
     color: ${colors.white};
     font-size: 16px;
+    width: 100%;
 
     &:-moz-placeholder {
       color: ${colors.lightGray};
@@ -29,7 +30,8 @@ export const Input = styled.input(
 export const InputWraper = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: relative;
-
+    width: 100%;
+    max-width: 360px;
     @media ${breakpoint.max.M} {
     }
   `
