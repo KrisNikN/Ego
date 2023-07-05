@@ -9,18 +9,20 @@ export const BlockCard = styled.div(
     border-radius: 10px;
     border: 1px solid ${colors.gold};
     padding: 0 20px;
-    padding-top: 33px;
-    padding-bottom: 37px;
-    max-width: 320px;
-    min-height: 238px;
+    /* padding-top: 33px;
+    padding-bottom: 37px; */
+    width: 320px;
+    min-height: 216px;
   `
 );
 
 export const ImageContainer = styled.div(
   ({ theme: { colors } }) => css`
-    position: relative;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    top: -55px;
     width: 66%;
     justify-content: center;
     background-color: ${colors.main};
@@ -32,6 +34,7 @@ export const Image = styled(_Image)(() => css``);
 
 export const Title = styled(_H3)(
   ({ theme: { colors } }) => css`
+    margin-top: 65px;
     font-size: 24px;
     font-family: Inter;
     font-weight: 600;

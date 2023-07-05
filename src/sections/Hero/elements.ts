@@ -69,12 +69,10 @@ export const RowsContainerMobile = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     margin-top: 40px;
     width: 100%;
-    padding-left: 30px;
     display: none;
 
     @media ${breakpoint.max.M} {
       padding: 0;
-      padding-left: 30px;
       display: block;
       /* min-height: 185px; */
     }
