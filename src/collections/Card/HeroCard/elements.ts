@@ -20,34 +20,31 @@ export const Row = styled.div(
   `
 );
 
-export const Image = styled(_Image)(
-  () => css`
-    width: 100%;
-  `
-);
+export const Image = styled(_Image)(({ theme: { gradients, colors } }) => css``);
 
 export const ImageContainer = styled.div(
   ({ theme: { colors, breakpoint, gradients } }) => css`
     position: relative;
-    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+
     border-radius: 10px;
     scroll-snap-align: start;
 
-    &::after {
+    &::before {
       content: "";
       position: absolute;
       top: 0;
       border-radius: 10px;
       left: 0;
-      /* width: 100%;
-      height: 100%; */
-      right: 0;
-      bottom: 2px;
+      bottom: 4px;
+      right: 0px;
 
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       background: ${gradients.heroImage};
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      z-index: 2;
     }
 
     margin-left: 20px;

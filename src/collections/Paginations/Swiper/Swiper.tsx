@@ -11,15 +11,31 @@ export interface SwiperProps {
 
 export const Swiper = ({ rows }: SwiperProps) => {
   const breakpoints = {
-    732: {
+    830: {
       slidesPerView: 2.4,
       spaceBetween: 20
     },
-    620: {
-      slidesPerView: 2,
+    800: {
+      slidesPerView: 2.3,
       spaceBetween: 20
     },
-    480: {
+    760: {
+      slidesPerView: 2.2,
+      spaceBetween: 20
+    },
+    732: {
+      slidesPerView: 2.1,
+      spaceBetween: 20
+    },
+    650: {
+      slidesPerView: 1.9,
+      spaceBetween: 20
+    },
+    620: {
+      slidesPerView: 1.8,
+      spaceBetween: 20
+    },
+    500: {
       slidesPerView: 1.6,
       spaceBetween: 20
     },
