@@ -6,10 +6,29 @@ import { theme, GlobalStyles } from "styles";
 import { Header, Footer } from "collections";
 import TagManager from "react-gtm-module";
 import { headerProps, footerProps } from "data";
+import {
+  getStoryblokApi,
+  ISbStoriesParams,
+  storyblokInit,
+  apiPlugin,
+  StoryblokComponent,
+  useStoryblokState,
+  ISbStoryData
+} from "@storyblok/react";
+import Page from "components/Page/Page";
 
 const tagManagerArgs = {
   gtmId: "GTM-XXXXXXX"
 };
+
+const components = {
+  page: Page
+};
+
+storyblokInit({
+  accessToken: process.env.storyblokApiToken || "",
+  use: [apiPlugin]
+});
 
 function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
   useEffect(() => {

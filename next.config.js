@@ -1,6 +1,6 @@
 const nextConfig = {
   distDir: ".next",
-  env: {},
+  env: { storyblokApiToken: process.env.STORYBLOK_API_TOKEN },
   experimental: {},
   future: {},
   images: {
