@@ -1,6 +1,4 @@
 import { NextPage } from "next";
-import { Hero, Power, Competition, HowItWorks, Discord } from "sections";
-import { heroProps, powerProps, competitionProps, howItWorksProps, discordProps } from "data";
 import {
   getStoryblokApi,
   ISbStoriesParams,
@@ -11,18 +9,19 @@ import {
 } from "@storyblok/react";
 
 interface HomeProps {
-  story: ISbStoryData<{ Body: any[] }> | null;
+  story: ISbStoryData<{ sections: any[] }> | null;
 }
 
 const Home: NextPage<HomeProps> = ({ story }) => {
-  console.log(story);
+  const _story = useStoryblokState(story);
   return (
     <>
-      <Hero {...heroProps} />
+      {/* <Hero {...heroProps} />
       <Power {...powerProps} />
       <Competition {...competitionProps} />
       <HowItWorks {...howItWorksProps} />
-      <Discord {...discordProps} />
+      <Discord {...discordProps} /> */}
+      {_story && <StoryblokComponent blok={_story.content} />}
     </>
   );
 };

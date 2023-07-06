@@ -1,10 +1,9 @@
 import * as S from "./elements";
+import { extractDimensionsFromUrl } from "functions";
 
 export interface HeroCardProps {
   images: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   }[];
 }
@@ -17,20 +16,16 @@ export const HeroCard = ({ images, index, ...props }: HeroCardProps & Additional
   return (
     <S.Row {...props}>
       {images.map((image, imageIndex) => {
-        let imageId: string = `slide-${imageIndex}`;
-
-        if (index > 0) {
-          imageId = `slide-${imageIndex + 4}`;
-        }
+        const showImage = extractDimensionsFromUrl(image.filename);
 
         return (
-          <S.ImageContainer key={image.alt} id={imageId}>
+          <S.ImageContainer key={image.filename}>
             <S.Image
-              src={image.src}
+              src={image.filename}
               alt={image.alt}
               objectFit='cover'
-              width={image.width}
-              height={image.height}
+              width={showImage.width}
+              height={showImage.height}
             />
           </S.ImageContainer>
         );

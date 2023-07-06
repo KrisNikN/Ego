@@ -1,8 +1,9 @@
 import { CompetitionТableProps, StatsLeadersProps, TopthreeProps } from "collections";
 import * as S from "./elements";
+import { CompetitionDurationProps } from "components";
+import { StoryblokComponent } from "@storyblok/react";
 
 export interface CompetitionProps {
-  competitionDuration: string;
   rankedUsers: {
     leaderOfStat: string | undefined;
     username: string;
@@ -15,21 +16,22 @@ export interface CompetitionProps {
   competitionТableProps: CompetitionТableProps;
   topthreeProps: TopthreeProps;
 }
+interface MoreProps {
+  blok: CompetitionDurationProps;
+}
 
 export const Competition = ({
   rankedUsers,
   statsLeadersProps,
   topthreeProps,
   competitionТableProps,
-  competitionDuration,
+  blok,
   ...props
-}: CompetitionProps) => {
+}: CompetitionProps & MoreProps) => {
   const statLeaders = rankedUsers.filter(user => user.leaderOfStat !== undefined);
-
   return (
     <S.CompetitionWraper {...props}>
-      <S.CompetitionDuration>{competitionDuration}</S.CompetitionDuration>
-
+      <StoryblokComponent blok={blok} />
       <S.Competition>
         <S.CompetitionColumn>
           <S.TopthreeDesktop rankedUsers={rankedUsers} {...topthreeProps} />

@@ -1,27 +1,28 @@
 import * as S from "./elements";
+import { SbBlokData, storyblokEditable } from "@storyblok/react";
 
 export interface DiscordProps {
+  blok: ISbDiscord;
+}
+
+export interface ISbDiscord extends SbBlokData {
   paragraph: string;
   discordImage: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
+  };
+  discordLink: {
+    url: string;
   };
 }
 
-export const Discord = ({ discordImage, paragraph, ...props }: DiscordProps) => {
+export const Discord = ({ blok, ...props }: DiscordProps) => {
   return (
     <S.Container {...props}>
-      <S.Discord>
-        <S.Paragraph>{paragraph}</S.Paragraph>
+      <S.Discord {...storyblokEditable(blok)}>
+        <S.Paragraph>{blok.paragraph}</S.Paragraph>
         <S.Button variant='discord'>
-          <S.Image
-            src={discordImage.src}
-            width={discordImage.width}
-            height={discordImage.height}
-            layout='intrinsic'
-          />
+          <S.Image src={blok.discordImage.filename} width={32} height={36} layout='intrinsic' />
         </S.Button>
       </S.Discord>
     </S.Container>

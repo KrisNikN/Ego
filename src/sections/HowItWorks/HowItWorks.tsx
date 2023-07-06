@@ -1,17 +1,22 @@
+import { SbBlokData, storyblokEditable } from "@storyblok/react";
 import * as S from "./elements";
 import { BlockCardProps } from "collections";
 
 export interface HowItWorksProps {
+  blok: ISbHowItWorks;
+}
+
+export interface ISbHowItWorks extends SbBlokData {
   title: string;
   cards: BlockCardProps[];
 }
 
-export const HowItWorks = ({ cards, title, ...props }: HowItWorksProps) => {
+export const HowItWorks = ({ blok, ...props }: HowItWorksProps) => {
   return (
-    <S.HowItWorks {...props}>
-      <S.Title>{title}</S.Title>
+    <S.HowItWorks {...props} {...storyblokEditable(blok)}>
+      <S.Title>{blok.title}</S.Title>
       <S.BlocksContainer>
-        {cards.map(card => (
+        {blok.cards.map(card => (
           <S.BlockCard {...card} key={card.title} />
         ))}
       </S.BlocksContainer>
