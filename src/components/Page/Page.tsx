@@ -9,7 +9,7 @@ const Page = ({ blok }: { blok: ISbStoryData["content"] }) => {
       {blok?.sections?.map(nestedBlok => {
         if (nestedBlok.component === "competition") {
           return (
-            <React.Fragment key={`competition-${nestedBlok._uid}`}>
+            <React.Fragment key={`${nestedBlok._uid}`}>
               <Power {...powerProps} />
               <Competition {...competitionProps} blok={nestedBlok} />
             </React.Fragment>

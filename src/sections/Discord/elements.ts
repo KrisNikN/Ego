@@ -1,5 +1,10 @@
 import styled, { css } from "styled-components";
-import { Paragraph as _Paragraph, Button as _Button, Image as _Image } from "components";
+import {
+  Paragraph as _Paragraph,
+  Button as _Button,
+  Image as _Image,
+  Link as _Link
+} from "components";
 
 export const Discord = styled.section(
   ({ theme: { colors, breakpoint } }) => css`
@@ -53,7 +58,7 @@ export const Paragraph = styled(_Paragraph)(
   `
 );
 
-export const Button = styled(_Button)(
+export const Link = styled(_Link)(
   ({ theme: { breakpoint } }) => css`
     margin-left: 85px;
     @media ${breakpoint.max.M} {

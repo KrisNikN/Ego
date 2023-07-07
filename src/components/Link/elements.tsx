@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import { default as NextLink } from "next/link";
 
-export const Link = styled.a(
-  ({ theme: { colors, breakpoint } }) => css`
+export const Link = styled.a<{ variant?: string }>(
+  ({ theme: { colors, breakpoint }, variant }) => css`
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
@@ -14,5 +14,23 @@ export const Link = styled.a(
     &:hover {
       cursor: pointer;
     }
+
+    ${variant === "discord" &&
+    css`
+      outline: none;
+      border: none;
+      background-color: ${({ theme }) => theme.colors.purple};
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 73px;
+      border-radius: 10px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    `}
   `
 );

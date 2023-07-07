@@ -21,9 +21,9 @@ export const Discord = ({ blok, ...props }: DiscordProps) => {
     <S.Container {...props}>
       <S.Discord {...storyblokEditable(blok)}>
         <S.Paragraph>{blok.paragraph}</S.Paragraph>
-        <S.Button variant='discord'>
+        <S.Link href={blok.discordLink.url} target='_blank' variant='discord'>
           <S.Image src={blok.discordImage.filename} width={32} height={36} layout='intrinsic' />
-        </S.Button>
+        </S.Link>
       </S.Discord>
     </S.Container>
   );

@@ -61,11 +61,4 @@ export const Button = styled(_Button)(
     `
 );
 
-export const FormInput = styled(_FormInput)(
-  () => css`
-    padding: 12px;
-    border: none;
-    width: 100%;
-    max-width: unset;
-  `
-) as typeof _FormInput;
+export const FormInput = styled(_FormInput)(() => css``) as typeof _FormInput;
