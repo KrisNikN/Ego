@@ -4,6 +4,7 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { HeroCardProps } from "collections/Card";
+import { extractDimensionsFromUrl } from "functions";
 
 export interface SwiperProps {
   rows: HeroCardProps[];
@@ -54,19 +55,22 @@ export const Swiper = ({ rows }: SwiperProps) => {
       breakpoints={breakpoints}
     >
       {rows.map(row =>
-        row.images.map(image => (
-          <SwiperSlide key={image.alt}>
-            <S.ImageContainer>
-              <S.Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                layout='intrinsic'
-              />
-            </S.ImageContainer>
-          </SwiperSlide>
-        ))
+        row.images.map(image => {
+          const showImage = extractDimensionsFromUrl(image.filename);
+          return (
+            <SwiperSlide key={image.filename}>
+              <S.ImageContainer>
+                <S.Image
+                  src={image.filename}
+                  alt={image.alt}
+                  width={showImage.width}
+                  height={showImage.height}
+                  layout='intrinsic'
+                />
+              </S.ImageContainer>
+            </SwiperSlide>
+          );
+        })
       )}
     </SwiperContainer>
   );

@@ -1,9 +1,9 @@
-import { default as _Link, LinkProps as _LinkProps } from 'next/link';
-import * as S from './elements';
+import { default as _Link, LinkProps as _LinkProps } from "next/link";
+import * as S from "./elements";
 
 type HTMLAnchorProps = Omit<
-  JSX.IntrinsicElements['a'],
-  'href' | 'onClick' | 'onMouseEnter' | 'color' | 'ref'
+  JSX.IntrinsicElements["a"],
+  "href" | "onClick" | "onMouseEnter" | "color" | "ref"
 >;
 
 export interface LinkCustomProps {
@@ -11,13 +11,15 @@ export interface LinkCustomProps {
 }
 
 export interface LinkProps
-  extends Omit<_LinkProps, 'href' | 'onTouchStart'>,
+  extends Omit<_LinkProps, "href" | "onTouchStart">,
     HTMLAnchorProps,
     LinkCustomProps {
-  href: _LinkProps['href'];
+  href: _LinkProps["href"];
+  variant?: "discord";
 }
 
 export const Link: React.FC<LinkProps> = ({
+  variant,
   children,
   as,
   href,
@@ -36,7 +38,9 @@ export const Link: React.FC<LinkProps> = ({
       scroll={scroll}
       shallow={shallow}
     >
-      <S.Link {...props}>{children}</S.Link>
+      <S.Link {...props} variant={variant}>
+        {children}
+      </S.Link>
     </_Link>
   );
 };

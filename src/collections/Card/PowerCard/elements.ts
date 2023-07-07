@@ -9,8 +9,8 @@ export const Column = styled.div(
     align-items: center;
 
     &:nth-child(2) {
-      border-left: 3px solid ${colors.lightGray};
-      border-right: 3px solid ${colors.lightGray};
+      border-left: 1px solid ${colors.bordersGray};
+      border-right: 1px solid ${colors.bordersGray};
       padding: 0 32px;
     }
 
@@ -22,7 +22,7 @@ export const Column = styled.div(
       &:nth-child(2),
       :nth-child(3) {
         h2 {
-          border-top: 2px solid ${colors.lightGray};
+          border-top: 1px solid ${colors.bordersGray};
         }
       }
 

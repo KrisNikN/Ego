@@ -2,7 +2,6 @@ import { CompetitionProps } from "sections";
 import { users } from "./users";
 
 export const competitionProps: CompetitionProps = {
-  competitionDuration: "Competitions last 24 hours or when all players hit their match limit",
   rankedUsers: users,
   topthreeProps: {
     competitionName: "{Competition Name}",

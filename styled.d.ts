@@ -20,7 +20,8 @@ declare module "styled-components" {
     | "gold"
     | "purplish"
     | "yellow"
-    | "purple";
+    | "purple"
+    | "bordersGray";
 
   type Gradients =
     | "blueToPurple"

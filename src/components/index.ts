@@ -6,3 +6,4 @@ export * from "./FormCheckbox";
 export * from "./SearchInput";
 export * from "./Image";
 export * from "./Link";
+export * from "./CompetitionDuration";

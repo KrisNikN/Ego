@@ -39,14 +39,11 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #dea30a; /* Set the bullet color when active */
     }
 
-    /* .swiper-pagination-fraction,
-.swiper-pagination-custom,
-.swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: -20px;
-} */
+   
 
-.swiper{
-    padding-bottom: 50px;
-}
+    .swiper{
+        padding-bottom: 50px;
+        padding-left: 30px;
+    }
+    
 `;

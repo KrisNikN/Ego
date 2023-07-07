@@ -12,9 +12,14 @@ export const FormInput = styled.input<{ variant?: string }>(
     font-size: 1rem;
     color: ${colors.white};
 
+    padding: 12px;
+    border: 2px solid ${colors.darkGray};
+    width: 100%;
+    max-width: unset;
+
     ${variant === "alert" &&
     css`
-      color: ${colors.vividRed};
+      border: 2px solid ${colors.vividRed};
     `}
   `
 );

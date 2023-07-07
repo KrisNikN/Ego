@@ -1,10 +1,9 @@
 import * as S from "./elements";
+import { extractDimensionsFromUrl } from "functions";
 
 export interface BlockCardProps {
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   title: string;
@@ -12,10 +11,17 @@ export interface BlockCardProps {
 }
 
 export const BlockCard = ({ image, paragraph, title, ...props }: BlockCardProps) => {
+  const imageProps = extractDimensionsFromUrl(image.filename);
+
   return (
     <S.BlockCard {...props}>
       <S.ImageContainer>
-        <S.Image src={image.src} width={image.width} height={image.height} layout='intrinsic' />
+        <S.Image
+          src={image.filename}
+          width={imageProps.width}
+          height={imageProps.height}
+          layout='intrinsic'
+        />
       </S.ImageContainer>
       <S.Title>{title}</S.Title>
       <S.Paragraph>{paragraph}</S.Paragraph>

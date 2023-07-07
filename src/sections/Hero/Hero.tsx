@@ -1,51 +1,58 @@
 import * as S from "./elements";
 import { HeroCardProps } from "collections";
+import { SbBlokData, storyblokEditable } from "@storyblok/react";
+import { extractDimensionsFromUrl } from "functions";
 
 export interface HeroProps {
+  blok: ISbHero;
+}
+
+export interface ISbHero extends SbBlokData {
   heroImage: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   heroImageMobile: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   rows: HeroCardProps[];
 }
 
-export const Hero = ({ heroImage, heroImageMobile, rows, ...props }: HeroProps) => {
+export const Hero = ({ blok, ...props }: HeroProps) => {
+  const heroImage = extractDimensionsFromUrl(blok.heroImage?.filename);
+  const heroImageMobile = extractDimensionsFromUrl(blok.heroImageMobile?.filename);
+
   return (
-    <S.Hero {...props}>
+    <S.Hero {...props} {...storyblokEditable(blok)}>
       <S.ImageContainer>
         <S.Image
-          src={heroImage.src}
-          alt={heroImage.alt}
+          src={blok.heroImage.filename}
+          alt={blok.heroImage.alt}
           width={heroImage.width}
           height={heroImage.height}
           layout='intrinsic'
+          priority
         />
       </S.ImageContainer>
       <S.ImageContainerMobile>
         <S.Image
-          src={heroImageMobile.src}
-          alt={heroImageMobile.alt}
+          src={blok.heroImageMobile.filename}
+          alt={blok.heroImageMobile.alt}
           width={heroImageMobile.width}
           height={heroImageMobile.height}
           layout='intrinsic'
+          priority
         />
       </S.ImageContainerMobile>
       <S.RowsContainerDesktop>
-        {rows.map((row, index) => (
-          <S.HeroCard index={index} {...row} key={row.images[0].alt} />
+        {blok.rows.map((row, index) => (
+          <S.HeroCard index={index} {...row} key={row.images[0].filename} />
         ))}
       </S.RowsContainerDesktop>
 
       <S.RowsContainerMobile>
-        <S.Swiper rows={rows} />
+        <S.Swiper rows={blok.rows} />
       </S.RowsContainerMobile>
     </S.Hero>
   );

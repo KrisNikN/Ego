@@ -3,7 +3,7 @@ import { forwardRef, ForwardedRef } from "react";
 import type { HTMLButtonProps } from "types";
 
 export interface ButtonProps extends HTMLButtonProps {
-  variant?: "primary" | "secondary" | "discord";
+  variant?: "primary" | "secondary";
 }
 
 export const Button = forwardRef(
