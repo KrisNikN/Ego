@@ -3,6 +3,7 @@ import * as S from "./elements";
 import { useState, useEffect } from "react";
 import { number } from "zod";
 import { CompetitionPaginationProps } from "collections/Paginations";
+import axios from "axios";
 
 export interface UsersProps {
   users: UserProps[];
@@ -19,7 +20,6 @@ export interface CompetitionТableProps {
 }
 
 export const CompetitionТable = ({
-  users,
   tableCardProps,
   competitionPaginationProps,
   matchesColumnHead,
@@ -28,16 +28,35 @@ export const CompetitionТable = ({
   rankColumnHead,
   scoreColumnHead,
   ...props
-}: UsersProps & CompetitionТableProps) => {
+}: CompetitionТableProps) => {
+  const [loading, setLoading] = useState<boolean>(true);
   const [currentLastUser, setLastUser] = useState<number>(10);
-  const [usersArrayToShow, setUsersArray] = useState<UserProps[]>(users.slice(0, 10));
+  const [usersArrayToShow, setUsersArray] = useState<UserProps[]>();
+  const [numberPages, setPages] = useState<number[]>();
   useEffect(() => {
-    setUsersArray(users.slice(currentLastUser - 10, currentLastUser));
-  }, [currentLastUser, users]);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          `/api/users?data=${Math.ceil(currentLastUser / 10).toString()}`
+        );
+        setUsersArray(response.data.users);
+        setPages(response.data.pages);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.error("Error fetching users:", error);
+      }
+    };
 
-  const pages: number[] = [];
-  for (let i = 1; i <= Math.ceil(users.length / 10); i++) {
-    pages.push(i);
+    fetchData();
+  }, [currentLastUser]);
+
+  const pagesForLoading: number[] = [];
+  if (loading) {
+    for (let i = 1; i <= 10; i++) {
+      pagesForLoading.push(i);
+    }
   }
 
   return (
@@ -53,17 +72,28 @@ export const CompetitionТable = ({
           </S.Tablerow>
         </S.Tablehead>
         <S.Tablebody>
-          {usersArrayToShow.map(user => (
-            <S.TableCard {...user} {...tableCardProps} key={user.rank} />
-          ))}
+          {usersArrayToShow &&
+            usersArrayToShow.map(user => (
+              <S.TableCard {...user} {...tableCardProps} key={user.rank} />
+            ))}
         </S.Tablebody>
       </S.Competitiontable>
-      <S.CompetitionPagination
-        {...competitionPaginationProps}
-        pages={pages}
-        setCurrentLastUser={setLastUser}
-        currentLastUser={currentLastUser}
-      />
+      {numberPages && !loading ? (
+        <S.CompetitionPagination
+          {...competitionPaginationProps}
+          pages={numberPages}
+          setCurrentLastUser={setLastUser}
+          currentLastUser={currentLastUser}
+        />
+      ) : (
+        <S.CompetitionPagination
+          {...competitionPaginationProps}
+          pages={pagesForLoading}
+          variant='loading'
+          setCurrentLastUser={setLastUser}
+          currentLastUser={currentLastUser}
+        />
+      )}
     </S.Container>
   );
 };

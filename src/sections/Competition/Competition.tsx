@@ -2,6 +2,8 @@ import { CompetitionТableProps, StatsLeadersProps, TopthreeProps } from "collec
 import * as S from "./elements";
 import { CompetitionDurationProps } from "components";
 import { StoryblokComponent } from "@storyblok/react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export interface CompetitionProps {
   rankedUsers: {
@@ -28,7 +30,36 @@ export const Competition = ({
   blok,
   ...props
 }: CompetitionProps & MoreProps) => {
+  const [loading, setLoading] = useState<boolean>(true);
+  const [users, setUsers] = useState<
+    {
+      leaderOfStat: string | undefined;
+      username: string;
+      leadingStatNumber: number;
+      score: number;
+      matches: number;
+      rank: number;
+    }[]
+  >([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get("/api/users?data=users");
+        console.log(response.data);
+        setUsers(response.data.users);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const statLeaders = rankedUsers.filter(user => user.leaderOfStat !== undefined);
+
   return (
     <S.CompetitionWraper {...props}>
       <StoryblokComponent blok={blok} />
@@ -43,7 +74,7 @@ export const Competition = ({
             <S.Detail>Time remaining 02:30:50</S.Detail>
           </S.DetailsContainer>
           <S.TopthreeMobile rankedUsers={rankedUsers} {...topthreeProps} />
-          <S.CompetitionТable {...competitionТableProps} users={rankedUsers} />
+          <S.CompetitionТable {...competitionТableProps} />
         </S.CompetitionColumn>
       </S.Competition>
     </S.CompetitionWraper>
