@@ -5,3 +5,4 @@ export * from "./Card";
 export * from "./Leaderboards";
 export * from "./Tables";
 export * from "./Paginations";
+export * from "./PopUps";

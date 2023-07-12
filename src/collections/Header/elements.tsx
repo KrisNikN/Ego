@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { HTMLHeaderProps } from "types";
 import { Image as _Image, SearchInput as _SearchInput, Button as _Button } from "components";
+import { Login as _Login, Register as _Register } from "collections/PopUps";
 
 export const Header = styled("header")<HTMLHeaderProps>(
   ({ theme: { colors } }) => css`
@@ -118,3 +119,7 @@ export const LogoWrapperMobile = styled.a(
     }
   `
 );
+
+export const Login = styled(_Login)(() => css``);
+
+export const Register = styled(_Register)(() => css``);

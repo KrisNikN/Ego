@@ -40,6 +40,19 @@ const buttonStyles: Record<
     color: ${({ theme }) => theme.colors.yellow};
     &:hover {
     }
+  `,
+  discord: css`
+    cursor: pointer;
+    outline: transparent;
+    border: transparent;
+    border-radius: 21px;
+    width: 100%;
+    height: 81px;
+    background: url("/imgs/loginDiscord.png"), lightgray 50% / cover no-repeat;
+
+    &:hover {
+      opacity: 0.9;
+    }
   `
 };
 

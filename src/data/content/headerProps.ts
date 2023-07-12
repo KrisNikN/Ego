@@ -1,4 +1,6 @@
 import { HeaderProps } from "collections";
+import { loginPopupProps } from "./loginPopupProps";
+import { registerPopupProps } from "./registerPopupProps";
 
 export const headerProps: HeaderProps = {
   discordLink: "https://discord.com/",
@@ -28,5 +30,7 @@ export const headerProps: HeaderProps = {
     width: 123.333
   },
   searchInputPlaceholder: "Search...",
-  signButtonText: "SIGN IN"
+  signButtonText: "SIGN IN",
+  loginPopupProps: loginPopupProps,
+  registerPopupProps: registerPopupProps
 };

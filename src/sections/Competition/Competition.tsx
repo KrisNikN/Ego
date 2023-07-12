@@ -74,7 +74,7 @@ export const Competition = ({
             <S.Detail>Time remaining 02:30:50</S.Detail>
           </S.DetailsContainer>
           <S.TopthreeMobile rankedUsers={rankedUsers} {...topthreeProps} />
-          <S.CompetitionТable {...competitionТableProps} />
+          <S.CompetitionТable {...competitionТableProps} users={rankedUsers} />
         </S.CompetitionColumn>
       </S.Competition>
     </S.CompetitionWraper>

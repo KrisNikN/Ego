@@ -20,6 +20,7 @@ export interface CompetitionТableProps {
 }
 
 export const CompetitionТable = ({
+  users,
   tableCardProps,
   competitionPaginationProps,
   matchesColumnHead,
@@ -28,7 +29,7 @@ export const CompetitionТable = ({
   rankColumnHead,
   scoreColumnHead,
   ...props
-}: CompetitionТableProps) => {
+}: CompetitionТableProps & UsersProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [currentLastUser, setLastUser] = useState<number>(10);
   const [usersArrayToShow, setUsersArray] = useState<UserProps[]>();
@@ -59,6 +60,8 @@ export const CompetitionТable = ({
     }
   }
 
+  const dummyUsers = users.slice(0, 10);
+
   return (
     <S.Container>
       <S.Competitiontable {...props}>
@@ -72,13 +75,14 @@ export const CompetitionТable = ({
           </S.Tablerow>
         </S.Tablehead>
         <S.Tablebody>
-          {usersArrayToShow &&
-            usersArrayToShow.map(user => (
-              <S.TableCard {...user} {...tableCardProps} key={user.rank} />
-            ))}
+          {usersArrayToShow
+            ? usersArrayToShow.map(user => (
+                <S.TableCard {...user} {...tableCardProps} key={user.rank} />
+              ))
+            : dummyUsers.map(user => <S.TableCard {...user} {...tableCardProps} key={user.rank} />)}
         </S.Tablebody>
       </S.Competitiontable>
-      {numberPages && !loading ? (
+      {numberPages ? (
         <S.CompetitionPagination
           {...competitionPaginationProps}
           pages={numberPages}
