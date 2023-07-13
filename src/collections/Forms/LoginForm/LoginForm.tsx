@@ -3,6 +3,7 @@ import * as S from "./elements";
 import { loginFormSchema } from "schemas";
 // import { signIn, useSession } from 'next-auth/react';
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 export interface LoginFormProps {
   title: string;
@@ -29,31 +30,25 @@ export const LoginForm = ({
   });
 
   const submitHandler = handleSubmit(async ({ email, password }) => {
-    // try {
-    //   const user = await signIn('credentials', {
-    //     email,
-    //     password,
-    //     action: 'login',
-    //     redirect: false,
-    //   });
-    //   if (user?.error) {
-    //     if (
-    //       user?.error ===
-    //       'FirebaseError: Firebase: Error (auth/wrong-password).'
-    //     ) {
-    //       throw new Error('Wrong password');
-    //     } else if (
-    //       user?.error ===
-    //       'FirebaseError: Firebase: Error (auth/user-not-found).'
-    //     ) {
-    //       throw new Error("Such user doesn't exist ");
-    //     }
-    //     throw new Error('Authentication failed');
-    //   }
-    // } catch (error: any) {
-    //   setHasError(true);
-    //   setError(error.message);
-    // }
+    try {
+      const user = await signIn("credentials", {
+        email,
+        password,
+        action: "login",
+        redirect: false
+      });
+      if (user?.error) {
+        if (user?.error === "FirebaseError: Firebase: Error (auth/wrong-password).") {
+          throw new Error("Wrong password");
+        } else if (user?.error === "FirebaseError: Firebase: Error (auth/user-not-found).") {
+          throw new Error("Such user doesn't exist ");
+        }
+        throw new Error("Authentication failed");
+      }
+    } catch (error: any) {
+      setHasError(true);
+      setError(error.message);
+    }
   });
 
   return (

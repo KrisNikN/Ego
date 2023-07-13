@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./elements";
-
+import { useSession, signOut } from "next-auth/react";
 import type { HTMLHeaderProps } from "types";
 import { LoginProps, RegisterProps } from "collections/PopUps";
 
@@ -32,7 +32,8 @@ export interface HeaderProps {
     alt: string;
   };
   searchInputPlaceholder: string;
-  signButtonText: string;
+  signInButtonText: string;
+  signOutButtonText: string;
   loginPopupProps: LoginProps;
   registerPopupProps: RegisterProps;
 }
@@ -47,15 +48,31 @@ export const Header = ({
   egoMainLogo,
   egoMainLogoMobile,
   searchInputPlaceholder,
-  signButtonText,
+  signOutButtonText,
+  signInButtonText,
   ...props
 }: HeaderProps & HTMLHeaderProps) => {
   const [openLogin, setOpenLogin] = useState<boolean>(false);
   const [openRegister, setOpenRegister] = useState<boolean>(false);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session) {
+      setOpenRegister(false);
+      setOpenLogin(false);
+    }
+  }, [session]);
+
+  console.log(session);
 
   const handleLoginClick: React.MouseEventHandler<HTMLButtonElement> = e => {
     e.preventDefault();
     setOpenLogin(true);
+  };
+
+  const handleSignOut: React.MouseEventHandler<HTMLButtonElement> = async e => {
+    e.preventDefault();
+    await signOut();
   };
 
   return (
@@ -103,14 +120,26 @@ export const Header = ({
               />
             </S.LogoWrapper>
             <S.SearchInput placeholder={searchInputPlaceholder} />
-            <S.ButtonDesktop variant='secondary' onClick={handleLoginClick}>
-              {signButtonText}
-            </S.ButtonDesktop>
+            {session ? (
+              <S.ButtonDesktop variant='secondary' onClick={handleSignOut}>
+                {signOutButtonText}
+              </S.ButtonDesktop>
+            ) : (
+              <S.ButtonDesktop variant='secondary' onClick={handleLoginClick}>
+                {signInButtonText}
+              </S.ButtonDesktop>
+            )}
           </S.LogoAndInputsContainer>
 
-          <S.ButtonMobile variant='secondary' onClick={handleLoginClick}>
-            {signButtonText}
-          </S.ButtonMobile>
+          {session ? (
+            <S.ButtonMobile variant='secondary' onClick={handleSignOut}>
+              {signOutButtonText}
+            </S.ButtonMobile>
+          ) : (
+            <S.ButtonMobile variant='secondary' onClick={handleLoginClick}>
+              {signInButtonText}
+            </S.ButtonMobile>
+          )}
         </S.HeaderContainer>
       </S.Header>
 

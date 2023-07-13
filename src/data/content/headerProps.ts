@@ -30,7 +30,8 @@ export const headerProps: HeaderProps = {
     width: 123.333
   },
   searchInputPlaceholder: "Search...",
-  signButtonText: "SIGN IN",
+  signInButtonText: "SIGN IN",
+  signOutButtonText: "SIGN OUT",
   loginPopupProps: loginPopupProps,
   registerPopupProps: registerPopupProps
 };

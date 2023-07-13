@@ -1,6 +1,6 @@
 import * as S from "./elements";
 import { LoginFormProps } from "collections/Forms";
-// import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export interface LoginProps {
   paragraphText: string;
@@ -52,7 +52,12 @@ export const Login = ({
           }}
           role='presentation'
         >
-          <S.DiscordButton variant='discord'></S.DiscordButton>
+          <S.DiscordButton
+            variant='discord'
+            onClick={() => {
+              signIn("discord");
+            }}
+          ></S.DiscordButton>
           <S.Paragraph>{paragraphText}</S.Paragraph>
           <S.LoginForm {...formProps} />
           <S.Button onClick={handleRegisterClick}>{registerButtonText}</S.Button>

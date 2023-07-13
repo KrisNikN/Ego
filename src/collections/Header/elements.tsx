@@ -48,7 +48,7 @@ export const Image = styled(_Image)(() => css``);
 
 export const ButtonDesktop = styled(_Button)(
   ({ theme: { colors, breakpoint } }) => css`
-    min-width: 117px;
+    min-width: 137px;
     @media ${breakpoint.max.M} {
       display: none;
     }

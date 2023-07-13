@@ -18,6 +18,7 @@ import {
 import Page from "components/Page/Page";
 import { Hero, Power, Competition, HowItWorks, Discord } from "sections";
 import { CompetitionDuration } from "components";
+import { SessionProvider } from "next-auth/react";
 
 const tagManagerArgs = {
   gtmId: "GTM-XXXXXXX"
@@ -43,11 +44,7 @@ interface MoreProps {
 }
 
 function MyApp({ Component, pageProps: { ...pageProps }, footer }: AppProps & MoreProps) {
-  useEffect(() => {
-    // TagManager.initialize(tagManagerArgs);
-  }, []);
   const _footer = useStoryblokState(footer);
-  // console.log(_footer?.content);
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -59,9 +56,11 @@ function MyApp({ Component, pageProps: { ...pageProps }, footer }: AppProps & Mo
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <GlobalStyles />
-      <Header {...headerProps} />
-      <Component {...pageProps} />
-      {_footer?.content && <StoryblokComponent blok={_footer.content} />}
+      <SessionProvider>
+        <Header {...headerProps} />
+        <Component {...pageProps} />
+        {_footer?.content && <StoryblokComponent blok={_footer.content} />}
+      </SessionProvider>
     </ThemeProvider>
   );
 }

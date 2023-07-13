@@ -1,9 +1,9 @@
 import { useZodForm } from "hooks";
 import * as S from "./elements";
 import { registerFormSchema } from "schemas";
-// import { signIn } from 'next-auth/react';
 import axios from "axios";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 export interface RegisterFormProps {
   emailInputText: string;
@@ -30,22 +30,22 @@ export const RegisterForm = ({
   });
 
   const submitHandler = handleSubmit(async ({ email, password }) => {
-    // try {
-    //   const response = await axios.post("/api/auth/register", {
-    //     email,
-    //     password
-    //   });
-    //   if (response.status === 200) {
-    //     await signIn("credentials", {
-    //       email,
-    //       password,
-    //       redirect: false
-    //     });
-    //     setHasError(false);
-    //   } // Registration successful
-    // } catch (error: any) {
-    //   setHasError(true);
-    // }
+    try {
+      const response = await axios.post("/api/auth/register", {
+        email,
+        password
+      });
+      if (response.status === 200) {
+        await signIn("credentials", {
+          email,
+          password,
+          redirect: false
+        });
+        setHasError(false);
+      } // Registration successful
+    } catch (error: any) {
+      setHasError(true);
+    }
   });
 
   return (

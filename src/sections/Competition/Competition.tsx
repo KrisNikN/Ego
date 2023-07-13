@@ -46,7 +46,6 @@ export const Competition = ({
       try {
         setLoading(true);
         const response = await axios.get("/api/users?data=users");
-        console.log(response.data);
         setUsers(response.data.users);
         setLoading(false);
       } catch (error) {

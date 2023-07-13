@@ -14,11 +14,17 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@auth/firebase-adapter": "^1.0.0",
     "@hookform/resolvers": "^2.9.11",
+    "@next-auth/firebase-adapter": "^2.0.1",
     "@storyblok/react": "^2.1.7",
+    "@types/next-auth": "^3.15.0",
     "axios": "^0.26.1",
     "chart.js": "^3.7.0",
+    "firebase": "^10.0.0",
+    "firebase-admin": "^11.10.0",
     "next": "^12.0.7",
+    "next-auth": "^4.22.1",
     "next-connect": "^0.13.0",
     "react": "17.0.2",
     "react-chartjs-2": "^4.0.0",
