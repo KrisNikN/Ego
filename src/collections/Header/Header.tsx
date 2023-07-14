@@ -3,10 +3,23 @@ import * as S from "./elements";
 import { useSession, signOut } from "next-auth/react";
 import type { HTMLHeaderProps } from "types";
 import { LoginProps, RegisterProps } from "collections/PopUps";
+import { UserDropDownProps } from "collections/DropDowns";
 
 export interface HeaderProps {
   discordLink: string;
   logoLink: string;
+  dropDownImageUp: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  dropDownImageDown: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
   discordImageDesktop: {
     src: string;
     width: number;
@@ -36,9 +49,12 @@ export interface HeaderProps {
   signOutButtonText: string;
   loginPopupProps: LoginProps;
   registerPopupProps: RegisterProps;
+  userDropDownProps: UserDropDownProps;
 }
 
 export const Header = ({
+  dropDownImageDown,
+  dropDownImageUp,
   loginPopupProps,
   registerPopupProps,
   discordLink,
@@ -50,10 +66,12 @@ export const Header = ({
   searchInputPlaceholder,
   signOutButtonText,
   signInButtonText,
+  userDropDownProps,
   ...props
 }: HeaderProps & HTMLHeaderProps) => {
   const [openLogin, setOpenLogin] = useState<boolean>(false);
   const [openRegister, setOpenRegister] = useState<boolean>(false);
+  const [openDropDown, setOpenDropDown] = useState<boolean>(false);
   const { data: session } = useSession();
 
   useEffect(() => {
@@ -63,8 +81,6 @@ export const Header = ({
     }
   }, [session]);
 
-  console.log(session);
-
   const handleLoginClick: React.MouseEventHandler<HTMLButtonElement> = e => {
     e.preventDefault();
     setOpenLogin(true);
@@ -73,6 +89,15 @@ export const Header = ({
   const handleSignOut: React.MouseEventHandler<HTMLButtonElement> = async e => {
     e.preventDefault();
     await signOut();
+  };
+
+  const handleUserImageClick: React.MouseEventHandler<HTMLImageElement> = e => {
+    e.preventDefault();
+    if (openDropDown) {
+      setOpenDropDown(false);
+    } else {
+      setOpenDropDown(true);
+    }
   };
 
   return (
@@ -121,9 +146,29 @@ export const Header = ({
             </S.LogoWrapper>
             <S.SearchInput placeholder={searchInputPlaceholder} />
             {session ? (
-              <S.ButtonDesktop variant='secondary' onClick={handleSignOut}>
-                {signOutButtonText}
-              </S.ButtonDesktop>
+              openDropDown ? (
+                <S.DropDownImageContainerUp>
+                  <S.DropDownImage
+                    src={dropDownImageUp.src}
+                    width={dropDownImageUp.width}
+                    height={dropDownImageUp.height}
+                    alt={dropDownImageUp.alt}
+                    layout='intrinsic'
+                    onClick={handleUserImageClick}
+                  />
+                </S.DropDownImageContainerUp>
+              ) : (
+                <S.DropDownImageContainerDown>
+                  <S.DropDownImage
+                    src={dropDownImageDown.src}
+                    width={dropDownImageDown.width}
+                    height={dropDownImageDown.height}
+                    alt={dropDownImageDown.alt}
+                    layout='intrinsic'
+                    onClick={handleUserImageClick}
+                  />
+                </S.DropDownImageContainerDown>
+              )
             ) : (
               <S.ButtonDesktop variant='secondary' onClick={handleLoginClick}>
                 {signInButtonText}
@@ -132,9 +177,29 @@ export const Header = ({
           </S.LogoAndInputsContainer>
 
           {session ? (
-            <S.ButtonMobile variant='secondary' onClick={handleSignOut}>
-              {signOutButtonText}
-            </S.ButtonMobile>
+            openDropDown ? (
+              <S.DropDownImageContainerUpMobile>
+                <S.DropDownImage
+                  src={dropDownImageUp.src}
+                  width={dropDownImageUp.width}
+                  height={dropDownImageUp.height}
+                  alt={dropDownImageUp.alt}
+                  layout='intrinsic'
+                  onClick={handleUserImageClick}
+                />
+              </S.DropDownImageContainerUpMobile>
+            ) : (
+              <S.DropDownImageContainerDownMobile>
+                <S.DropDownImage
+                  src={dropDownImageDown.src}
+                  width={dropDownImageDown.width}
+                  height={dropDownImageDown.height}
+                  alt={dropDownImageDown.alt}
+                  layout='intrinsic'
+                  onClick={handleUserImageClick}
+                />
+              </S.DropDownImageContainerDownMobile>
+            )
           ) : (
             <S.ButtonMobile variant='secondary' onClick={handleLoginClick}>
               {signInButtonText}
@@ -157,6 +222,12 @@ export const Header = ({
           {...loginPopupProps}
         />
       )}
+      <S.UserDropDown
+        active={openDropDown}
+        setOpenDropDown={setOpenDropDown}
+        openDropDown={openDropDown}
+        {...userDropDownProps}
+      />
     </>
   );
 };

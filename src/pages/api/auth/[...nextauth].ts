@@ -4,7 +4,8 @@ import DiscordProvider from "next-auth/providers/discord";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { cert } from "firebase-admin/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../../firebase";
+import { auth, db } from "../../../../firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
 
@@ -29,6 +30,15 @@ export default NextAuth({
           if (!credentials) {
             throw new Error("Missing credentials");
           }
+
+          const usersCollectionRef = collection(db, "users");
+          const usersQuery = query(usersCollectionRef, where("email", "==", credentials.email));
+          const usersSnapshot = await getDocs(usersQuery);
+
+          usersSnapshot.docs.forEach(doc => {
+            const userData = doc.data();
+            console.log(userData);
+          });
 
           await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
 

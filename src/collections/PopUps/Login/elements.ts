@@ -66,3 +66,10 @@ export const DiscordButton = styled(_Button)(
     margin-bottom: 13px;
   `
 );
+
+export const EmailResetDiv = styled.div(
+  () => css`
+    display: flex;
+    width: 100%;
+  `
+);
