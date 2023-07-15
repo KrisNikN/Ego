@@ -49,7 +49,7 @@ export const Image = styled(_Image)(() => css``);
 
 export const ButtonDesktop = styled(_Button)(
   ({ theme: { colors, breakpoint } }) => css`
-    min-width: 137px;
+    min-width: 117px;
     @media ${breakpoint.max.M} {
       display: none;
     }
@@ -128,7 +128,7 @@ export const DropDownImageContainerUp = styled.div(
     justify-content: flex-end;
     position: relative;
     left: +5px;
-
+    cursor: pointer;
     @media ${breakpoint.max.M} {
       display: none;
     }
@@ -138,6 +138,7 @@ export const DropDownImageContainerUp = styled.div(
 export const DropDownImageContainerUpMobile = styled.div(
   ({ theme: { breakpoint } }) => css`
     display: none;
+    cursor: pointer;
     @media ${breakpoint.max.M} {
       min-width: 78px;
       display: flex;
@@ -155,6 +156,7 @@ export const DropDownImageContainerDown = styled.div(
     justify-content: flex-end;
     position: relative;
     left: +1px;
+    cursor: pointer;
     @media ${breakpoint.max.M} {
       display: none;
     }
@@ -164,6 +166,7 @@ export const DropDownImageContainerDown = styled.div(
 export const DropDownImageContainerDownMobile = styled.div(
   ({ theme: { breakpoint } }) => css`
     display: none;
+    cursor: pointer;
     @media ${breakpoint.max.M} {
       min-width: 78px;
       display: flex;
@@ -184,8 +187,8 @@ export const UserDropDown = styled(_UserDropDown)<{ active: boolean }>(
     right: 40px;
     top: -100000px;
     opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(-20px);
+    transition: opacity 0.5s, transform 0.5s;
 
     /* Active state */
     ${active &&

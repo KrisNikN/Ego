@@ -35,6 +35,7 @@ export const RegisterForm = ({
         email,
         password
       });
+
       if (response.status === 200) {
         await signIn("credentials", {
           email,
@@ -42,7 +43,9 @@ export const RegisterForm = ({
           redirect: false
         });
         setHasError(false);
-      } // Registration successful
+      } else {
+        setHasError(true);
+      }
     } catch (error: any) {
       setHasError(true);
     }

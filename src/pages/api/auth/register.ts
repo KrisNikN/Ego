@@ -6,6 +6,8 @@ import { z } from "zod";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { db, auth } from "../../../../firebase";
+import bcrypt from "bcrypt";
+import { v4 as uuidv4 } from "uuid";
 
 export interface RegisterRequest extends NextApiRequest {
   body: z.infer<typeof registerSchema>;
@@ -32,33 +34,26 @@ const handler = nc<RegisterRequest, NextApiResponse<ApiResponseBase<RegisterResp
     const usersQuery = query(usersCollectionRef, where("email", "==", email));
     const usersSnapshot = await getDocs(usersQuery);
 
-    // console.log(usersSnapshot.empty);
     if (usersSnapshot.empty === false) {
       return res.status(400).json({ message: "User with this email already exists" });
     }
 
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const uid = uuidv4();
 
-    if (userCredential.user) {
-      await updateProfile(userCredential.user, {
-        displayName: email
-      });
+    const hash = await bcrypt.hash(password, 12);
+    await setDoc(doc(db, "users", uid), {
+      email: email,
+      password: hash
+    });
 
-      await setDoc(doc(db, "users", userCredential.user.uid), {
-        email: email
-      });
-
-      return res.status(200).json({ message: `Registration successful for ${email}!` });
-    } else {
-      return res.status(400).json({ message: "User registration failed" });
-    }
+    return res.status(200).json({ message: "Registration successful" });
   } catch (error: any) {
     if (error instanceof z.ZodError) {
       const errorMessage = error.errors.map(err => err.message).join(", ");
       return res.status(400).json({ error: errorMessage });
     }
 
-    return res.status(400).json({ error });
+    return res.status(500).json({ error: "Internal server error" });
   }
 });
 

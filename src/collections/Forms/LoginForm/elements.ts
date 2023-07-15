@@ -33,7 +33,13 @@ export const Button = styled(_Button)(
   `
 );
 
-export const ErrorP = styled(_Paragraph)(({ theme: { colors, breakpoint } }) => css``);
+export const ErrorP = styled(_Paragraph)(
+  ({ theme: { colors, breakpoint } }) => css`
+    text-align: center;
+    color: ${colors.vividRed};
+    margin: 20px;
+  `
+);
 
 export const CheckBox = styled(_CheckBox)(() => css``) as typeof _CheckBox;
 

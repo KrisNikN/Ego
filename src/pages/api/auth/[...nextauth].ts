@@ -3,7 +3,7 @@ import { FirestoreAdapter } from "@next-auth/firebase-adapter";
 import DiscordProvider from "next-auth/providers/discord";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { cert } from "firebase-admin/app";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import bcrypt from "bcrypt";
 import { auth, db } from "../../../../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
@@ -35,19 +35,31 @@ export default NextAuth({
           const usersQuery = query(usersCollectionRef, where("email", "==", credentials.email));
           const usersSnapshot = await getDocs(usersQuery);
 
+          if (usersSnapshot.empty) {
+            throw new Error("User with this email doesn't exist");
+          }
+
+          let userPassword: string | null = null;
           usersSnapshot.docs.forEach(doc => {
             const userData = doc.data();
-            console.log(userData);
+            userPassword = userData.password;
           });
 
-          await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
+          if (!userPassword) {
+            throw new Error("User password not found");
+          }
 
-          //returns
+          const isMatch = await bcrypt.compare(credentials.password, userPassword);
+
+          if (!isMatch) {
+            throw new Error("Wrong password");
+          }
+
           const user = { id: "unique-user-id", email: credentials.email };
 
           return user;
         } catch (error: any) {
-          throw new Error(error);
+          throw new Error(error.message);
         }
       }
     }),

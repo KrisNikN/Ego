@@ -44,6 +44,7 @@ export const ErrorP = styled(_Paragraph)(
     margin: 0;
     margin-top: 20px;
     text-align: center;
+    color: ${colors.vividRed};
   `
 );
 

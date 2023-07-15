@@ -34,16 +34,13 @@ export const LoginForm = ({
       const user = await signIn("credentials", {
         email,
         password,
-        action: "login",
         redirect: false
       });
       if (user?.error) {
-        if (user?.error === "FirebaseError: Firebase: Error (auth/wrong-password).") {
-          throw new Error("Wrong password");
-        } else if (user?.error === "FirebaseError: Firebase: Error (auth/user-not-found).") {
-          throw new Error("Such user doesn't exist ");
-        }
-        throw new Error("Authentication failed");
+        setError(user?.error);
+        setHasError(true);
+      } else {
+        setHasError(false);
       }
     } catch (error: any) {
       setHasError(true);

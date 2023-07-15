@@ -31,16 +31,13 @@ export const UserDropDown = ({
     const handleClickOutside = (e: Event) => {
       if (e.target instanceof Node && dropRef.current && !dropRef.current.contains(e.target)) {
         setOpenDropDown(false);
-        console.log("false");
       }
     };
-
-    if (openDropDown) {
-      window.addEventListener("pointerup", handleClickOutside);
-    }
+    window.addEventListener("pointerup", handleClickOutside);
 
     return () => {
       window.removeEventListener("pointerup", handleClickOutside);
+      console.log("removed");
     }; // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
