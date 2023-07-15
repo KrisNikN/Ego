@@ -50,3 +50,23 @@ export const NumberButton = styled.button<{ checked?: boolean }>(
     `}
   `
 );
+
+export const Loader = styled.div(
+  ({ theme: { colors } }) => css`
+    border: 3px solid ${colors.lightGray}; /* Light grey */
+    border-top: 3px solid ${colors.gold}; /* Blue */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 2s linear infinite;
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  `
+);

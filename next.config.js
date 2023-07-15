@@ -4,7 +4,7 @@ const nextConfig = {
   experimental: {},
   future: {},
   images: {
-    domains: ["https://www.publishersweekly.com", "a.storyblok.com"]
+    domains: ["https://www.publishersweekly.com", "a.storyblok.com", "cdn.discordapp.com"]
   },
   trailingSlash: true
 };

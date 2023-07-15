@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { HTMLHeaderProps } from "types";
 import { Image as _Image, SearchInput as _SearchInput, Button as _Button } from "components";
+import { Login as _Login, Register as _Register } from "collections/PopUps";
+import { UserDropDown as _UserDropDown } from "collections/DropDowns";
 
 export const Header = styled("header")<HTMLHeaderProps>(
   ({ theme: { colors } }) => css`
@@ -47,7 +49,7 @@ export const Image = styled(_Image)(() => css``);
 
 export const ButtonDesktop = styled(_Button)(
   ({ theme: { colors, breakpoint } }) => css`
-    min-width: 117px;
+    min-width: 137px;
     @media ${breakpoint.max.M} {
       display: none;
     }
@@ -118,3 +120,81 @@ export const LogoWrapperMobile = styled.a(
     }
   `
 );
+
+export const DropDownImageContainerUp = styled.div(
+  ({ theme: { breakpoint } }) => css`
+    min-width: 78px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    left: +5px;
+
+    @media ${breakpoint.max.M} {
+      display: none;
+    }
+  `
+);
+
+export const DropDownImageContainerUpMobile = styled.div(
+  ({ theme: { breakpoint } }) => css`
+    display: none;
+    @media ${breakpoint.max.M} {
+      min-width: 78px;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      left: +5px;
+    }
+  `
+);
+
+export const DropDownImageContainerDown = styled.div(
+  ({ theme: { breakpoint } }) => css`
+    min-width: 78px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    left: +1px;
+    @media ${breakpoint.max.M} {
+      display: none;
+    }
+  `
+);
+
+export const DropDownImageContainerDownMobile = styled.div(
+  ({ theme: { breakpoint } }) => css`
+    display: none;
+    @media ${breakpoint.max.M} {
+      min-width: 78px;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      left: +1px;
+    }
+  `
+);
+
+export const Login = styled(_Login)(() => css``);
+
+export const Register = styled(_Register)(() => css``);
+
+export const UserDropDown = styled(_UserDropDown)<{ active: boolean }>(
+  ({ active }) => css`
+    position: absolute;
+    right: 40px;
+    top: -100000px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+
+    /* Active state */
+    ${active &&
+    css`
+      top: 115px;
+      opacity: 1;
+      transform: translateY(0);
+    `}
+  `
+);
+
+export const DropDownImage = styled(_Image)(() => css``);

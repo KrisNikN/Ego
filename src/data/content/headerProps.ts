@@ -1,8 +1,23 @@
 import { HeaderProps } from "collections";
+import { loginPopupProps } from "./loginPopupProps";
+import { registerPopupProps } from "./registerPopupProps";
+import { userDropDownProps } from "./userDropDownProps";
 
 export const headerProps: HeaderProps = {
   discordLink: "https://discord.com/",
   logoLink: "/",
+  dropDownImageDown: {
+    alt: "drop Down Image",
+    height: 46,
+    src: "/imgs/dropDown-down.png",
+    width: 74
+  },
+  dropDownImageUp: {
+    alt: "drop Down Image",
+    height: 46,
+    src: "/imgs/dropDown-up.png",
+    width: 78
+  },
   discordImageDesktop: {
     src: "/imgs/DiscordLogo.png",
     alt: "Discord Logo",
@@ -28,5 +43,9 @@ export const headerProps: HeaderProps = {
     width: 123.333
   },
   searchInputPlaceholder: "Search...",
-  signButtonText: "SIGN IN"
+  signInButtonText: "SIGN IN",
+  signOutButtonText: "SIGN OUT",
+  loginPopupProps: loginPopupProps,
+  registerPopupProps: registerPopupProps,
+  userDropDownProps: userDropDownProps
 };

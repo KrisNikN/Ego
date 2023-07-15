@@ -2,6 +2,7 @@ import * as S from "./elements";
 import { useState } from "react";
 
 export interface CompetitionPaginationProps {
+  variant?: "loading";
   leftArrowImage: {
     src: string;
     alt: string;
@@ -23,6 +24,7 @@ export interface HooksProps {
 }
 
 export const CompetitionPagination = ({
+  variant,
   currentLastUser,
   setCurrentLastUser,
   pages,
@@ -65,6 +67,13 @@ export const CompetitionPagination = ({
       }
     }
   };
+
+  if (variant === "loading")
+    return (
+      <S.CompetitionPagination>
+        <S.Loader></S.Loader>
+      </S.CompetitionPagination>
+    );
 
   return (
     <S.CompetitionPagination {...props}>
